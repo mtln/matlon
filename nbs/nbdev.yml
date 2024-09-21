@@ -1,0 +1,9 @@
+project:
+  output-dir: _docs
+
+website:
+  title: "matlon"
+  site-url: "https://mtln.github.io/matlon"
+  description: "matlon.ch website"
+  repo-branch: main
+  repo-url: "https://github.com/mtln/matlon"
