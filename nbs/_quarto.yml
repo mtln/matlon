@@ -7,16 +7,24 @@ format:
     css: styles.css
     toc: true
     keep-md: true
-  commonmark: default
+  # commonmark: default
 
 website:
+  favicon: logo.png
   twitter-card: true
-  open-graph: true
-  repo-actions: [issue]
+  #open-graph: true
+  #repo-actions: [issue]
   navbar:
     background: primary
     search: true
+    collapse-below: lg
+    left:
+      - text: "Gschichtefritz"
+        href: https://www.gschichtefritz.ch
+
   sidebar:
     style: floating
 
 metadata-files: [nbdev.yml, sidebar.yml]
+margin-header: |
+  ![](logo.png)
