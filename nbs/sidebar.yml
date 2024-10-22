@@ -4,3 +4,4 @@ website:
       - index.ipynb
       - 10_andri.ipynb
       - 90_imprint.ipynb
+      - 95_model.ipynb
