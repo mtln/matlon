@@ -54,6 +54,8 @@ runs:
         else
           test -f setup.py && pip install -e ".[dev]"
         fi
+        FILE_LIST=$(find . -maxdepth 1 -name '*.ipynb' -print0 | xargs -0 echo)
+        jupyter nbconvert --execute --to notebook --inplace $FILE_LIST
         nbdev_docs
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
