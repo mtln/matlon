@@ -15,19 +15,19 @@ inputs:
     required: false
   aws_access_key_id :
     description: 'AWS Access Key ID'
-    default: ${{ secrets.AWS_ACCESS_KEY_ID }}
+    default: ${{ AWS_ACCESS_KEY_ID }}
     required: false
   aws_secret_access_key:
     description: 'AWS Secret Access Key'
-    default: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+    default: ${{ AWS_SECRET_ACCESS_KEY }}
     required: false
   aws_region:
     description: 'AWS Region'
-    default: ${{ secrets.AWS_REGION }}
+    default: ${{ AWS_REGION }}
     required: false
   aws_cloudfront_distribution_id:
     description: 'AWS CloudFront Distribution ID'
-    default: ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION_ID }}
+    default: ${{ AWS_CLOUDFRONT_DISTRIBUTION_ID }}
     required: false
   publish_branch:
     description: 'Branch name to publish docs to'
