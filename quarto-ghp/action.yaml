@@ -13,22 +13,18 @@ inputs:
     description: 'GitHub token'
     default: ${{ github.token }}
     required: false
-  aws_access_key_id :
+  AWS_ACCESS_KEY_ID :
     description: 'AWS Access Key ID'
-    default: ${{ AWS_ACCESS_KEY_ID }}
-    required: false
-  aws_secret_access_key:
+    required: true
+  AWS_SECRET_ACCESS_KEY:
     description: 'AWS Secret Access Key'
-    default: ${{ AWS_SECRET_ACCESS_KEY }}
-    required: false
-  aws_region:
+    required: true
+  AWS_REGION:
     description: 'AWS Region'
-    default: ${{ AWS_REGION }}
-    required: false
-  aws_cloudfront_distribution_id:
+    required: true
+  AWS_CLOUDFRONT_DISTRIBUTION_ID:
     description: 'AWS CloudFront Distribution ID'
-    default: ${{ AWS_CLOUDFRONT_DISTRIBUTION_ID }}
-    required: false
+    required: true
   publish_branch:
     description: 'Branch name to publish docs to'
     required: false
@@ -96,9 +92,9 @@ runs:
 
     - name: Configure AWS Credentials
       run: |
-        aws configure set aws_access_key_id ${{ inputs.aws_access_key_id }}
-        aws configure set aws_secret_access_key ${{ inputs.aws_secret_access_key }}
-        aws configure set region ${{ inputs.aws_region }}
+        aws configure set aws_access_key_id ${{ inputs.AWS_ACCESS_KEY_ID }}
+        aws configure set aws_secret_access_key ${{ inputs.AWS_SECRET_ACCESS_KEY }}
+        aws configure set region ${{ inputs.AWS_REGION }}
 
     - name: Copy docs to S3
       run: |
@@ -106,4 +102,4 @@ runs:
 
     - name: Invalidate CloudFront Cache
       run: |
-        aws cloudfront create-invalidation --distribution-id ${{ inputs.cloudfront_distribution_id }} --paths "/*"
+        aws cloudfront create-invalidation --distribution-id ${{ inputs.CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
