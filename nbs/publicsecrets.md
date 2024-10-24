@@ -13,6 +13,8 @@ Address Book
 Bookmarks
 : Individual bookmarks / links can be shared and grouped hierarchically. The bookmark check tool reports invalid/outdated bookmarks.
 
+![PublicSecrets Bookmarks screenshot. btw: the color theme was customizable...](publicsecrets1.jpg)
+
 Notes
 : Manage your personal notes.
 
@@ -41,7 +43,7 @@ PSDocs
 PS GarbageAlert
 : Reminds you of the waste paper or cardboard collection dates for the district you live in. Only for Zurich.
 
-: Years later, ERZ (Entsorgung + Recycling Zurich) came up with a similar service.
+: Years later, ERZ (Entsorgung + Recycling Zürich) came up with a similar service.
 
 PSVote
 : Ideas for extensions are proposed here and all users can vote on them.

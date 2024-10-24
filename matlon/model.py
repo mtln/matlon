@@ -8,7 +8,9 @@ __all__ = ['Project', 'load_projects', 'projects_to_dot', 'project_to_markdown']
 # %% ../nbs/95_model.ipynb 3
 from typing import ForwardRef
 from pydantic import BaseModel
+from pathlib import Path
 import json
+import os
 
 # %% ../nbs/95_model.ipynb 4
 Project = ForwardRef('Project')
@@ -30,7 +32,10 @@ class Project(BaseModel):
 # %% ../nbs/95_model.ipynb 5
 def load_projects():
     # Load JSON data from projects.json
-    with open('projects.json', 'r') as file:
+    # check if file nbs/projects.json exists
+    path_prefix = Path("") if not os.path.exists('nbs/projects.json') else Path("nbs")
+
+    with open(path_prefix/'projects.json', 'r', encoding='utf-8') as file:
         projects_data = json.load(file)
 
     # Instantiate Project objects
@@ -41,7 +46,7 @@ def load_projects():
     for project in projects:
         # if a file exists with the same name as the project and suffix .md, load it as the description
         try:
-            with open(f'{project.short_title()}.md', 'r', encoding='utf-8') as file:
+            with open(path_prefix/f'{project.short_title()}.md', 'r', encoding='utf-8') as file:
                 project.description = file.read()
         except FileNotFoundError:
             pass

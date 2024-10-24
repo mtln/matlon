@@ -1,5 +1,13 @@
 [
     {
+        "title": "Patient",
+        "year_start": 1991,
+        "year_end": 1994,
+        "quote": "Early DOS software for patient management",
+        "description": "My first software that was used productively was called 'Patient'. I wrote it as a teenager in Turbo Pascal for my mother, who, in addition to being a housewife, also worked part-time as a self-employed physiotherapist. The DOS application was multicolored and could be operated with a mouse. We had an Intel 80386 DX 20 MHz computer with a 1 GB hard drive and a simple dot-matrix printer. With my patient management software, one could not only schedule appointments and do the accounting, but also directly fill out the yellow forms that had to be submitted to the disability insurance (IV) for billing. At the time, my mother was probably the only physiotherapist who sent forms to the insurance not handwritten but neatly filled out by a printer 😀. \n\n ![Patient menu screenshot](patient1.jpg) \n\nThe completely exaggerated title 'Physikalisch-Therapeutisches Institut Ruth Krämer & Co.' was, of course, meant as a family insider joke.  \n\n ![Patient detail screenshot](patient2.jpg)"
+
+    },
+    {
         "title": "PublicSecrets",
         "year_start": 1997,
         "year_end": 2007,
