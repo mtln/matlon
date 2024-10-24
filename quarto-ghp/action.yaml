@@ -8,7 +8,7 @@ inputs:
   version:
     description: 'Version of python to set up'
     required: false
-    default: '3.10'
+    default: '3.12'
   ghtoken:
     description: 'GitHub token'
     default: ${{ github.token }}
@@ -57,6 +57,7 @@ runs:
         fi
         cd nbs
         FILE_LIST=$(find . -maxdepth 1 -name '*.ipynb' -print0 | xargs -0 echo)
+        jupyter kernelspec list 
         jupyter nbconvert --execute --to notebook --inplace $FILE_LIST
         cd ..
         nbdev_docs
