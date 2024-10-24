@@ -16,4 +16,4 @@ jobs:
 
       # Run your local action file
       - name: Run local Quarto GHP Action
-        uses: ./path/to/quarto-ghp-action.yaml
+        uses: ./quarto-ghp-action.yaml
