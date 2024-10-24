@@ -13,6 +13,22 @@ inputs:
     description: 'GitHub token'
     default: ${{ github.token }}
     required: false
+  aws_access_key_id :
+    description: 'AWS Access Key ID'
+    default: ${{ secrets.AWS_ACCESS_KEY_ID }}
+    required: false
+  aws_secret_access_key:
+    description: 'AWS Secret Access Key'
+    default: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+    required: false
+  aws_region:
+    description: 'AWS Region'
+    default: ${{ secrets.AWS_REGION }}
+    required: false
+  aws_cloudfront_distribution_id:
+    description: 'AWS CloudFront Distribution ID'
+    default: ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION_ID }}
+    required: false
   publish_branch:
     description: 'Branch name to publish docs to'
     required: false
@@ -72,3 +88,22 @@ runs:
         user_name: github-actions[bot]
         user_email: 41898282+github-actions[bot]@users.noreply.github.com
         publish_branch: ${{ inputs.publish_branch }}
+
+    - name: Install AWS CLI
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y awscli
+
+    - name: Configure AWS Credentials
+      run: |
+        aws configure set aws_access_key_id ${{ inputs.aws_access_key_id }}
+        aws configure set aws_secret_access_key ${{ inputs.aws_secret_access_key }}
+        aws configure set region ${{ inputs.aws_region }}
+
+    - name: Copy docs to S3
+      run: |
+        aws s3 cp ./_docs s3://${{ inputs.s3_bucket }}/ --recursive
+
+    - name: Invalidate CloudFront Cache
+      run: |
+        aws cloudfront create-invalidation --distribution-id ${{ inputs.cloudfront_distribution_id }} --paths "/*"
