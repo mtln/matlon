@@ -6,14 +6,11 @@ permissions:
 
 on:
   push:
-    branches: [ "main", "master" ]
+    branches: [ "main", "feature/build"]
   workflow_dispatch:
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3  # Ensure the repo is checked out first
-
-      # Run your local action file
       - name: Run local Quarto GHP Action
         uses: ./quarto-ghp
