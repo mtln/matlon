@@ -48,6 +48,7 @@ runs:
           sudo dpkg -i quarto*.deb
         else
           pip install -Uq nbdev
+          pip install nbconvert
         fi
         if [ $TORCH_CPU ]; then
           test -f setup.py && pip install -e ".[dev]" --extra-index-url https://download.pytorch.org/whl/cpu
