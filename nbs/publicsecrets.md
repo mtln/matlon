@@ -48,4 +48,4 @@ PS GarbageAlert
 PSVote
 : Ideas for extensions are proposed here and all users can vote on them.
 
-PublicSecrets was written in ColdFusion and ran on a Windows NT server.
+PublicSecrets was written in ColdFusion and ran on a Windows NT server..
