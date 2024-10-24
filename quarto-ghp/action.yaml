@@ -1,0 +1,103 @@
+name: 'build-docs'
+description: 'Create docs with nbdev'
+inputs:
+  pre:
+    description: 'Install prerelease nbdev/execnb from master?'
+    required: false
+    default: ''
+  version:
+    description: 'Version of python to set up'
+    required: false
+    default: '3.12'
+  ghtoken:
+    description: 'GitHub token'
+    default: ${{ github.token }}
+    required: false
+  AWS_ACCESS_KEY_ID:
+    description: 'AWS Access Key ID'
+    required: true
+  AWS_SECRET_ACCESS_KEY:
+    description: 'AWS Secret Access Key'
+    required: true
+  AWS_REGION:
+    description: 'AWS Region'
+    required: true
+  AWS_CLOUDFRONT_DISTRIBUTION_ID:
+    description: 'AWS CloudFront Distribution ID'
+    required: true
+  publish_branch:
+    description: 'Branch name to publish docs to'
+    required: false
+    default: 'gh-pages'
+  torch_cpu:
+    description: "Install PyTorch CPU instead of PyTorch Cuda.  Has no effect if PyTorch isn't a requirement.  Enabled by defaut."
+    required: false
+    default: true
+
+runs:
+  using: "composite"
+  steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-python@v4
+      with:
+        python-version: ${{ inputs.version }}
+        cache: "pip"
+        cache-dependency-path: settings.ini
+    - name: Install Dependencies
+      env:
+        USE_PRE: ${{ inputs.pre }}
+        TORCH_CPU: "${{ inputs.torch_cpu }}"
+      shell: bash
+      run: |
+        set -ux
+        python -m pip install --upgrade pip
+        pip install jupyterlab nbconvert==7.12.0
+        if [ $USE_PRE ]; then
+          pip install -Uq git+https://github.com/fastai/ghapi.git
+          pip install -Uq git+https://github.com/fastai/fastcore.git
+          pip install -Uq git+https://github.com/fastai/execnb.git
+          pip install -Uq git+https://github.com/fastai/nbdev.git
+          wget -q $(curl https://latest.fast.ai/pre/quarto-dev/quarto-cli/linux-amd64.deb)
+          sudo dpkg -i quarto*.deb
+        else
+          pip install -Uq nbdev
+        fi
+        if [ $TORCH_CPU ]; then
+          test -f setup.py && pip install -e ".[dev]" --extra-index-url https://download.pytorch.org/whl/cpu
+        else
+          test -f setup.py && pip install -e ".[dev]"
+        fi
+        cd nbs
+        FILE_LIST=$(find . -maxdepth 1 -name '*.ipynb' -print0 | xargs -0 echo)
+        jupyter kernelspec list 
+        jupyter nbconvert --execute --to notebook --inplace $FILE_LIST
+        cd ..
+        nbdev_docs
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ inputs.ghtoken }}
+        force_orphan: true
+        publish_dir: ./_docs
+        # The following lines assign commit authorship to the official GH-Actions bot for deploys to `gh-pages` branch.
+        # You can swap them out with your own user credentials.
+        user_name: github-actions[bot]
+        user_email: 41898282+github-actions[bot]@users.noreply.github.com
+        publish_branch: ${{ inputs.publish_branch }}
+
+    - name: Configure AWS Credentials
+      shell: bash
+      run: |
+        aws configure set aws_access_key_id ${{ inputs.AWS_ACCESS_KEY_ID }}
+        aws configure set aws_secret_access_key ${{ inputs.AWS_SECRET_ACCESS_KEY }}
+        aws configure set region ${{ inputs.AWS_REGION }}
+
+    - name: Copy docs to S3
+      shell: bash
+      run: |
+        aws s3 cp ./_docs s3://matlon-website/ --recursive
+
+    - name: Invalidate CloudFront Cache
+      shell: bash
+      run: |
+        aws cloudfront create-invalidation --distribution-id ${{ inputs.AWS_CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"

@@ -6,9 +6,19 @@ permissions:
 
 on:
   push:
-    branches: [ "main", "master" ]
+    branches: [ "main", "feature/build"]
   workflow_dispatch:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    steps: [uses: fastai/workflows/quarto-ghp@master]
+    steps:
+      - uses: actions/checkout@v3  # Ensure the repo is checked out first
+
+      # Run your local action file
+      - name: Run local Quarto GHP Action
+        with:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_REGION: ${{ secrets.AWS_REGION }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_CLOUDFRONT_DISTRIBUTION_ID: ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION_ID }}
+        uses: ./quarto-ghp
