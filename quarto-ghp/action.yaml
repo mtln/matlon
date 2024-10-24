@@ -39,6 +39,7 @@ runs:
       run: |
         set -ux
         python -m pip install --upgrade pip
+        pip install jupyterlab nbconvert==7.12.0
         if [ $USE_PRE ]; then
           pip install -Uq git+https://github.com/fastai/ghapi.git
           pip install -Uq git+https://github.com/fastai/fastcore.git
@@ -48,7 +49,6 @@ runs:
           sudo dpkg -i quarto*.deb
         else
           pip install -Uq nbdev
-          pip install nbconvert
         fi
         if [ $TORCH_CPU ]; then
           test -f setup.py && pip install -e ".[dev]" --extra-index-url https://download.pytorch.org/whl/cpu
