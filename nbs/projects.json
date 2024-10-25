@@ -8,6 +8,13 @@
 
     },
     {
+        "title": "Teltax",
+        "year_start": 1995,
+        "year_end": 1999,
+        "quote": "Dial-In modem costs calculator and splitter",
+        "description": "To access the internet back then, you had to dial in via a modem over the phone line. There was a basic charge for establishing the connection and a per-minute fee with three different time-based pricing levels. Internet costs could quickly become very high, and if you lived in a shared apartment or worked remotely for an employer, you needed to know for each 'internet session' when it happened, how long it lasted, and who would be responsible for paying at the end of the month.\n\nThat's exactly why I wrote Teltax. It was activated each time a modem connection ended, allowing you to specify whose account the costs should be charged to. The details were read from the technical log of the Win95 modem driver (e.g., `c:\\win95\\ModemLog_Zeus 336E External 33600 Fax Modem.txt`). Then, the costs were calculated based on the three different price levels and written into a log file. At the end of the billing period, a total cost per user was calculated. Additionally, the data volume was analyzed, and the cost per megabyte was calculated. Since charges were based on time rather than data volume back then, the goal was, of course, to keep the cost per megabyte as low as possible by truly using the connection and not keeping it open for too long.\n\n ![Teltax summary screenshot](teltax1.jpg)"
+    },
+    {
         "title": "PublicSecrets",
         "year_start": 1997,
         "year_end": 2007,
