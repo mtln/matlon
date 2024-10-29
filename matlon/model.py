@@ -51,16 +51,26 @@ def load_projects():
         except FileNotFoundError:
             pass
         project._related_projects = [projects_by_title[title] for title in project.related_project_titles] if project.related_project_titles else []
+        # add a backlink to the related projects
+        for related_project in project._related_projects:
+            if not related_project._related_projects:
+                related_project._related_projects = []
+            if project not in related_project._related_projects:
+                related_project._related_projects.append(project)
 
     return projects
 
 # %% ../nbs/95_model.ipynb 6
 def projects_to_dot(projects: list[Project]) -> str:
+    edges = set()
     dot = 'graph G {\n'
     for project in projects:
         dot += f'"{project.title}" [URL="andri.html#{project.short_title()}"]\n'
         for related_project in project._related_projects:
-            dot += f'"{project.title}" -- "{related_project.title}"\n'
+            edge = "-".join(sorted([project.title, related_project.title]))
+            if edge not in edges:
+                edges.add(edge)
+                dot += f'"{project.title}" -- "{related_project.title}"\n' 
     dot += '}'
     return dot
 
