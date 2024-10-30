@@ -49,7 +49,11 @@ def load_projects():
             with open(path_prefix/f'{project.short_title()}.md', 'r', encoding='utf-8') as file:
                 project.description = file.read()
         except FileNotFoundError:
-            pass
+            try:
+                with open(path_prefix/f'{project.short_title()}.mmd', 'r', encoding='utf-8') as file:
+                    project.description = file.read()
+            except FileNotFoundError:
+                    pass
         project._related_projects = [projects_by_title[title] for title in project.related_project_titles] if project.related_project_titles else []
         # add a backlink to the related projects
         for related_project in project._related_projects:

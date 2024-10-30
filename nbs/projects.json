@@ -52,6 +52,15 @@
         "description": "Gschichtefritz offered MP3s from the very beginning. However, with the rise of streaming services, it became clear that customers were finding it increasingly challenging to download MP3s and transfer them to iPods, tablets, or smartphones. To address this issue, I developed a player app in 2020. The free [Gschichtefritz App](https://gschichtefritz.ch/page/app) lets you download all your stories, so you can listen to them offline whenever you want. It’s also designed to be easily operated by young children, even those who can’t read yet.\n\n**Framework:** Xamarin, since 2023: Maui  \n**Programming Language:** C#  \n**Platforms:** iOS and Android\n\n ![Gschichtefritz App Screenshot](gschichtefritzapp1.jpg)",
         "related_project_titles": ["Gschichtefritz"]
 
+    },
+    {
+        "title": "gschichtefritz.ch legacy",
+        "year_start": 2009,
+        "year_end": 2023,
+        "quote": "CRM, shop, CD burner automation, accounting, and more",
+        "description": "",
+        "related_project_titles": ["Gschichtefritz"]
+
     }
     
 ]
