@@ -25,6 +25,11 @@ class Project(BaseModel):
     related_project_titles: list[str] | None = None
     _related_projects: list[Project] | None = None
 
+    def __eq__(self, other):
+        if not isinstance(other, Project):
+            return NotImplemented
+        return self.title == other.title  # Define `title` as the unique field for equality
+
      # create a short_title method that returns method without spaces and without special characters, all in lowercase
     def short_title(self):
         return self.title.replace(" ", "-").lower()

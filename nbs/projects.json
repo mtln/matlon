@@ -59,8 +59,14 @@
         "year_end": 2023,
         "quote": "CRM, shop, CD burner automation, accounting, and more",
         "description": "",
-        "related_project_titles": ["Gschichtefritz"]
-
+        "related_project_titles": ["Gschichtefritz", "Gschichtefritz App"]
+    },
+    {
+        "title": "gschichtefritz.ch current",
+        "year_start": 2024,
+        "quote": "Shop and App backend",
+        "description": "",
+        "related_project_titles": ["Gschichtefritz", "Gschichtefritz App"]
     }
     
 ]
