@@ -75,6 +75,14 @@
         "quote": "Mix and arrangement of a song visualized",
         "description": "",
         "related_project_titles": ["Gschichtefritz"]
+    },
+    {
+        "title": "Dino Stampf Deep Learning",
+        "year_start": 2017,
+        "year_end": 2017,
+        "quote": "Pre-LLM AI generated pseudo-Swiss German lyrics",
+        "description": "",
+        "related_project_titles": ["Gschichtefritz"]
     }
     
     
