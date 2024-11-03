@@ -3,7 +3,7 @@ project:
 
 website:
   title: "matlon"
-  site-url: "https://mtln.github.io/matlon"
+  site-url: "https://www.matlon.ch/"
   description: "matlon.ch website"
   repo-branch: main
   repo-url: "https://github.com/mtln/matlon"
