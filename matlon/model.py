@@ -32,7 +32,7 @@ class Project(BaseModel):
 
      # create a short_title method that returns method without spaces and without special characters, all in lowercase
     def short_title(self):
-        return self.title.replace(" ", "-").lower()
+        return self.title.replace(" ", "-").replace(":", "").lower()
 
 # %% ../nbs/95_model.ipynb 5
 def load_projects():
