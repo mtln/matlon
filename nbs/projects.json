@@ -96,7 +96,11 @@
         "year_start": 2024,
         "quote": "Write assessment reports for assistive technologies using AI",
         "description": "batGPT is an AI tool for writing assessment reports for assistive technologies, using large language models (LLMs). By selecting keywords and entering short text fragments, a draft report is generated, which can then be manually completed and refined. The screenshot shows an example of such a draft\n\n ![Screenshot of batGPT: Input on the left, generated output on the right.](batgpt1.jpg)\n\nThis application was developed for [b-at Beratung assistive Technologien](https://b-at.ch)."
+    },{
+        "title": "WhatsAppChatConverter",
+        "year_start": 2024,
+        "quote": "My father asked me how he could print his WhatsApp chat history with my late brother. I had to realize that this was not possible, and there was no useful free tool to archive or print a chat in a nice format. So, I wrote one.",
+        "description": "There's a [dedicated project page](/20_whatsapp_converter.ipynb) for that"
     }
-    
     
 ]
