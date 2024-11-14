@@ -21,6 +21,8 @@ website:
     left:
       - text: "Gschichtefritz"
         href: https://www.gschichtefritz.ch
+      - text: "WhatsAppChatConverter"
+        href: https://whatsappchatconverter.click
 
   sidebar:
     style: floating
