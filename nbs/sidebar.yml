@@ -2,6 +2,9 @@ website:
   sidebar:
     contents:
       - index.ipynb
-      - 10_andri.ipynb
+      - section: Andri Krämer
+        contents:
+          - 10_andri.ipynb
+          - 11_andri_cv.ipynb
       - 90_imprint.ipynb
       - 95_model.ipynb
