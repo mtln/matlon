@@ -5,12 +5,29 @@
 
 As a kid, whenever someone asked what I wanted to be when I grew up, I’d
 always say, ‘an inventor.’ Starting October 23, 2024, I’ll be
-documenting an old project every day. So stay tuned and follow me as the
-website grows!
+documenting my projects. So stay tuned and follow me as the website
+grows!
 
-- 2024-11-02: [Dino Stampf Deep
-  Learning](.\10_andri.ipynb#dino-stampf-deep-learning) Pre-LLM AI
-  generated pseudo-Swiss German lyrics
+- 2024-11-16: [Running Wheel
+  Tracker](.\10_andri.ipynb#running-wheel-tracker) Pet cage upgraded for
+  the IoT era
+- 2024-11-14: [Andri’s CV](.\11_andri_cv.ipynb) Joyfully bound to the
+  endless journey of learning
+- 2024-11-10: [Anelec, 1985-1990](.\10_andri.ipynb#anelec) My first
+  company at the age of 12
+- 2024-11-08: [WhatsAppChatConverter,
+  2024-](.\10_andri.ipynb#whatsappchatconverter) My father asked me how
+  he could print his WhatsApp chat history with my late brother. I had
+  to realize that this was not possible, and there was no useful free
+  tool to archive or print a chat in a nice format. So, I wrote one.
+- 2024-11-04: [batGPT, 2024-](.\10_andri.ipynb#batgpt) Write assessment
+  reports for assistive technologies using AI
+- 2024-11-03: [Brainwaver: Pink Noise,
+  2013](.\10_andri.ipynb#brainwaver-pink-noise) Nothing but binaural
+  pink noise to get into the flow and focus
+- 2024-11-02: [Dino Stampf Deep Learning,
+  2017](.\10_andri.ipynb#dino-stampf-deep-learning) Pre-LLM AI generated
+  pseudo-Swiss German lyrics
 - 2024-11-01: [VisualMix, 2022](.\10_andri.ipynb#visualmix) Mix and
   arrangement of a song visualized
 - 2024-10-31: [gschichtefritz.ch current, 2023
