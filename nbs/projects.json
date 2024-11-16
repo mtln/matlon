@@ -1,6 +1,7 @@
 [
     {
         "title": "Patient",
+        "categories": ["early projects"],
         "year_start": 1991,
         "year_end": 1994,
         "quote": "Early DOS software for patient management",
@@ -9,6 +10,7 @@
     },
     {
         "title": "Ohr",
+        "categories": ["early projects", "music"],
         "year_start": 1992,
         "year_end": 1994,
         "quote": "Ear trainer for musicians",
@@ -17,6 +19,7 @@
     },
     {
         "title": "Teltax",
+        "categories": ["early projects"],
         "year_start": 1995,
         "year_end": 1999,
         "quote": "Dial-In modem costs calculator and splitter",
@@ -24,6 +27,7 @@
     },
     {
         "title": "PublicSecrets",
+        "categories": ["early projects", "long-term projects"],
         "year_start": 1997,
         "year_end": 2007,
         "quote": "The _really_ social network before social networks",
@@ -34,12 +38,14 @@
         "title": "WiiMIDIi",
         "year_start": 2007,
         "year_end": 2008,
+        "categories": ["music"],
         "quote": "Using a Nintendo Wiimote for guitar motion sensing and converting accelerometer data to MIDI",
         "description": "For our concerts with [Amtsbladt](http://www.amtsbladt.ch), a Swiss electro-pop duo where I was responsible for composition and music, and my friend Phil handled lyrics and vocals, I wrote software to convert the movements of the guitar neck into MIDI signals. I had attached a Wiimote to the guitar head. With quick movements in different directions, I could trigger samples, and with slower movements, I could control parameters of the guitar effects. In addition, I could use the Wiimote buttons to control Ableton Live (start tracks). There’s nothing more boring at concerts than guys on stage sitting behind a laptop. As an audience member, you have no idea if what they're doing has anything to do with what you're hearing or if they're just checking their emails or stock prices. That’s why I was behind the guitar and not behind a computer.  \n\n For the Guitar Rig Hero Contest by Native Instruments, I demonstrated my setup in a rather silly video 🤣.\n\n[![Watch WiiMIDIi demo on YouTube](https://img.youtube.com/vi/8vSY9S_ypdI/0.jpg)](https://www.youtube.com/watch?v=8vSY9S_ypdI)"
 
     },
     {
         "title": "Gschichtefritz",
+        "categories": ["long-term projects"],
         "year_start": 2009,
         "quote": "Audio stories with songs for children",
         "description": ""
@@ -47,6 +53,7 @@
     },
     {
         "title": "Gschichtefritz App",
+        "categories": ["long-term projects"],
         "year_start": 2020,
         "quote": "Gschichtefritz audiobook player app for iOS and Android",
         "description": "Gschichtefritz offered MP3s from the very beginning. However, with the rise of streaming services, it became clear that customers were finding it increasingly challenging to download MP3s and transfer them to iPods, tablets, or smartphones. To address this issue, I developed a player app in 2020. The free [Gschichtefritz App](https://gschichtefritz.ch/page/app) lets you download all your stories, so you can listen to them offline whenever you want. It’s also designed to be easily operated by young children, even those who can’t read yet.\n\n**Framework:** Xamarin, since 2023: Maui  \n**Programming Language:** C#  \n**Platforms:** iOS and Android\n\n ![Gschichtefritz App Screenshot](gschichtefritzapp1.jpg)",
@@ -55,6 +62,7 @@
     },
     {
         "title": "gschichtefritz.ch legacy",
+        "categories": ["long-term projects"],
         "year_start": 2009,
         "year_end": 2023,
         "quote": "CRM, shop, CD burner automation, accounting, and more",
@@ -63,6 +71,7 @@
     },
     {
         "title": "gschichtefritz.ch current",
+        "categories": ["miscellaneous"],
         "year_start": 2024,
         "quote": "Shop and App backend",
         "description": "",
@@ -70,6 +79,7 @@
     },
     {
         "title": "VisualMix",
+        "categories": ["music"],
         "year_start": 2022,
         "year_end": 2022,
         "quote": "Mix and arrangement of a song visualized",
@@ -78,6 +88,7 @@
     },
     {
         "title": "Dino Stampf Deep Learning",
+        "categories": ["AI"],
         "year_start": 2017,
         "year_end": 2017,
         "quote": "Pre-LLM AI generated pseudo-Swiss German lyrics",
@@ -86,6 +97,7 @@
     },
     {
         "title": "Brainwaver: Pink Noise",
+        "categories": ["miscellaneous"],
         "year_start": 2013,
         "year_end": 2013,
         "quote": "Nothing but binaural pink noise to get into the flow and focus",
@@ -93,16 +105,19 @@
     },
     {
         "title": "batGPT",
+        "categories": ["AI"],
         "year_start": 2024,
         "quote": "Write assessment reports for assistive technologies using AI",
         "description": "batGPT is an AI tool for writing assessment reports for assistive technologies, using large language models (LLMs). By selecting keywords and entering short text fragments, a draft report is generated, which can then be manually completed and refined. The screenshot shows an example of such a draft\n\n ![Screenshot of batGPT: Input on the left, generated output on the right.](batgpt1.jpg)\n\nThis application was developed for [b-at Beratung assistive Technologien](https://b-at.ch)."
     },{
         "title": "WhatsAppChatConverter",
+        "categories": ["miscellaneous"],
         "year_start": 2024,
         "quote": "My father asked me how he could print his WhatsApp chat history with my late brother. I had to realize that this was not possible, and there was no useful free tool to archive or print a chat in a nice format. So, I wrote one.",
         "description": "[WhatsAppChatConverter](https://whatsappchatconverter.click) is an open-source tool written in Python. The website is built using an AWS Lambda function that retrieves the project's README markdown from GitHub, converts it to HTML, and returns it as a complete, properly formatted HTML page. \n\n [![YouTube](https://img.youtube.com/vi/s1dMO8pjkC8/0.jpg)](https://www.youtube.com/watch?v=s1dMO8pjkC8)"
     },{
         "title": "Anelec",
+        "categories": ["early projects"],
         "year_start": 1985,
         "year_end": 1990,
         "quote": "My first company at the age of 12",
@@ -110,6 +125,7 @@
     },
     {
         "title": "Running Wheel Tracker",
+        "categories": ["miscellaneous"],
         "year_start": 2018,
         "year_end": 2018,
         "quote": "Pet cage upgraded for the IoT era",
