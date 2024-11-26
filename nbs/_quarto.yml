@@ -21,6 +21,9 @@ website:
     left:
       - text: "Gschichtefritz"
         href: https://www.gschichtefritz.ch
+      - text: "chat-export"
+        href: https://chat-export.click
+
 
   sidebar:
     style: floating
