@@ -1,0 +1,21 @@
+For our concerts with [Amtsbladt](http://www.amtsbladt.ch), a Swiss electro-pop duo where I was responsible for composition and music, 
+and my friend Phil handled lyrics and vocals, I wrote software to convert the movements of the guitar neck into MIDI signals. I had attached a Wiimote to the guitar head. 
+With quick movements in different directions, I could trigger samples, and with slower movements, I could control parameters of the guitar effects. 
+In addition, I could use the Wiimote buttons to control Ableton Live (start tracks).
+
+
+```{mermaid}
+flowchart TD
+    A1[Wiimote] -->|Bluetooth| B(Computer)
+    B --> C{WiiMIDIi}
+    C --> |MIDI| D(Ableton Live)
+    C --> |MIDI| E[NI Guitar Rig]
+    
+```
+
+
+There’s nothing more boring at concerts than guys on stage sitting behind a laptop. As an audience member, you have no idea if what they're doing has anything 
+to do with what you're hearing or if they're just checking their emails or stock prices. That’s why I was behind the guitar and not behind a computer.  
+For the Guitar Rig Hero Contest by Native Instruments, I demonstrated my setup in a rather silly [video](https://www.youtube.com/watch?v=8vSY9S_ypdI) 🤣.
+
+[![Watch WiiMIDIi demo on YouTube](https://img.youtube.com/vi/8vSY9S_ypdI/0.jpg)](https://www.youtube.com/watch?v=8vSY9S_ypdI)
