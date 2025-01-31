@@ -2,6 +2,7 @@ website:
   sidebar:
     contents:
       - index.ipynb
+      - 01_mts.ipynb
       - section: Andri Krämer
         contents:
           - 10_andri.ipynb
