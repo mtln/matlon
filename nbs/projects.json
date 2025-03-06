@@ -110,6 +110,12 @@
         "quote": "Write assessment reports for assistive technologies using AI",
         "description": "batGPT is an AI tool for writing assessment reports for assistive technologies, using large language models (LLMs). By selecting keywords and entering short text fragments, a draft report is generated, which can then be manually completed and refined. The screenshot shows an example of such a draft\n\n ![Screenshot of batGPT: Input on the left, generated output on the right.](batgpt1.jpg)\n\nThis application was developed for [b-at Beratung assistive Technologien](https://b-at.ch) in 2024 and is being enhhanced and improved regularly, using the latest AI models and capabilities."
     },{
+        "title": "docGPT",
+        "categories": ["AI"],
+        "year_start": 2025,
+        "quote": "Write structured documents and reports with just a few clicks and keystrokes",
+        "description": "There's a dedicated page for this project: [docGPT](/05_docGPT.ipynb)"
+    },{
         "title": "mts",
         "categories": ["miscellaneous"],
         "year_start": 2025,
