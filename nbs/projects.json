@@ -122,6 +122,12 @@
         "quote": "A tool for electronic billing in the Swiss healthcare system",
         "description": "There's a dedicated page for this project (in German): [mts](/01_mts.ipynb)"
     },{
+        "title": "tl-qrbill",
+        "categories": ["miscellaneous"],
+        "year_start": 2025,
+        "quote": "An extension for the teamleader CRM/ERP to generate Swiss QR-Bill slips",
+        "description": "There's a dedicated page for this project (in German): [tl-qrbill](/02_tlqrbill.ipynb)"
+    },{
         "title": "chat-export",
         "categories": ["miscellaneous"],
         "year_start": 2024,

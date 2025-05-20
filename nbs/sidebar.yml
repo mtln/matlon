@@ -3,6 +3,7 @@ website:
     contents:
       - index.ipynb
       - 01_mts.ipynb
+      - 02_tlqrbill.ipynb
       - 05_docGPT.ipynb
       - section: Andri Krämer
         contents:
