@@ -128,6 +128,12 @@
         "quote": "An extension for the teamleader CRM/ERP to generate Swiss QR-Bill slips",
         "description": "There's a dedicated page for this project (in German): [tl-qrbill](/02_tlqrbill.ipynb)"
     },{
+        "title": "bringo",
+        "categories": ["miscellaneous"],
+        "year_start": 2025,
+        "quote": "The perfect platform for 'self-organizing' events. Who's coming? Who's bringing what? Bringo takes care of it all.",
+        "description": "There's a dedicated page for this project (in German): [bringo](/03_bringo.ipynb)"
+    },{
         "title": "chat-export",
         "categories": ["miscellaneous"],
         "year_start": 2024,
