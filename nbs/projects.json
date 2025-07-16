@@ -154,6 +154,12 @@
         "year_end": 2018,
         "quote": "Pet cage upgraded for the IoT era",
         "description": ""
+    },{
+        "title": "easypaste",
+        "categories": ["miscellaneous"],
+        "year_start": 2025,
+        "quote": "Your ultimate clipboard sidekick for presentations, coding demos, and tutorial recordings. This lightweight, open-source tool, built in Rust, lets you load a text file with custom delimiters and then paste segments one-by-one via global hotkeys—no retyping, no fumbling with copy/paste. It also shows a preview of the upcoming segment (with optional internal notes visible only in console).",
+        "description": "[easypaste](https://easypaste.click) is an open-source tool written in Rust. The website is built using an AWS Lambda function that retrieves the project's README markdown from GitHub, converts it to HTML, and returns it as a complete, properly formatted HTML page."
     }
     
     
