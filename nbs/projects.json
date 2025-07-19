@@ -132,7 +132,7 @@
         "categories": ["miscellaneous"],
         "year_start": 2025,
         "quote": "The perfect platform for 'self-organizing' events. Who's coming? Who's bringing what? Bringo takes care of it all.",
-        "description": "There's a dedicated page for this project (in German): [bringo](/03_bringo.ipynb)"
+        "description": "Bringo is written in Python, using the Reflex framework. There's a dedicated page for this project (in German): [bringo](/03_bringo.ipynb)"
     },{
         "title": "chat-export",
         "categories": ["miscellaneous"],
