@@ -160,6 +160,13 @@
         "year_start": 2025,
         "quote": "Your ultimate clipboard sidekick for presentations, coding demos, and tutorial recordings. This lightweight, open-source tool, built in Rust, lets you load a text file with custom delimiters and then paste segments one-by-one via global hotkeys—no retyping, no fumbling with copy/paste. It also shows a preview of the upcoming segment (with optional internal notes visible only in console).",
         "description": "[easypaste](https://easypaste.click) is an open-source tool written in Rust. The website is built using an AWS Lambda function that retrieves the project's README markdown from GitHub, converts it to HTML, and returns it as a complete, properly formatted HTML page."
+    },{
+        "title": "shuffle_spotify_playlist",
+        "categories": ["music","miscellaneous"],
+        "year_start": 2022,
+        "year_end": 2022,
+        "quote": "Create a shuffled copy of your Spotify playlist - the reliable way to avoid repeats during playback.",
+        "description": "When planning a party — whether for friends, colleagues, or clients — I usually take care of the music myself. I enjoy curating playlists and selecting songs that fit the occasion and mood. For me, music is too important to rely on AI-generated or generic playlists. I want the experience to feel intentional and personal.\n\nHowever, I kept running into the same problem: after assembling a playlist of 80-120 songs, I'd notice that similar tracks or songs from the same artist often ended up grouped together. That's natural — it reflects the way we think while adding songs. But it doesn't make for a good listening experience.\n\nShuffle mode in Spotify seemed like a quick fix, but it caused another issue: when the playback is stopped (e.g. during a dinner or speech) and resumed later, Spotify doesn't remember which songs have already been played. As a result, some tracks repeat, while others don't get played at all.\n\nTo avoid this, I wanted a way to shuffle the playlist once and then play it in regular, sequential mode — ensuring all songs are played once, in a good order, without repetition. Doing this manually for large playlists is tedious and time-consuming.\n\nThat's why I wrote a small Python script in a Jupyter Notebook to automate the process. It connects to your Spotify account, takes a playlist, shuffles it once, and saves the shuffled version as a new playlist. This gives you a great base to start from — and you can still reorder a few songs manually if you like.\n\nYou can find it on GitHub:  \n🔗 [github.com/mtln/shuffle_spotify_playlist](https://github.com/mtln/shuffle_spotify_playlist/blob/main/ShuffleSpotifyPlaylist.ipynb)"
     }
     
     
