@@ -75,7 +75,15 @@
         "year_start": 2024,
         "quote": "Shop and App backend",
         "description": "",
-        "related_project_titles": ["Gschichtefritz", "Gschichtefritz App"]
+        "related_project_titles": ["Gschichtefritz", "Gschichtefritz App", "Gschichtefritz Affiliate"]
+    },
+    {
+        "title": "Gschichtefritz Affiliate",
+        "categories": ["miscellaneous"],
+        "year_start": 2025,
+        "quote": "Stand-alone affiliate programme for gschichtefritz.ch with full configurability and integration into the existing shop and app backend",
+        "description": "",
+        "related_project_titles": ["Gschichtefritz", "Gschichtefritz App", "gschichtefritz.ch current"]
     },
     {
         "title": "VisualMix",
