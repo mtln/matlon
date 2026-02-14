@@ -1,3 +1,39 @@
 [build-system]
 requires = ["setuptools>=64.0"]
 build-backend = "setuptools.build_meta"
+
+[project]
+name = "matlon"
+version = "0.0.1"
+description = "matlon.ch website"
+readme = "README.md"
+license = "Apache-2.0"
+requires-python = ">=3.9"
+authors = [{name = "Andri Kraemer", email = "akraemer@matlon.ch"}]
+keywords = ["nbdev", "jupyter", "notebook", "python"]
+dependencies = ["fastcore", "pydantic"]
+
+[project.urls]
+Homepage = "https://github.com/mtln/matlon"
+
+[project.entry-points.nbdev]
+matlon = "matlon._modidx:d"
+
+[tool.nbdev]
+doc_path = "_docs"
+lib_path = "matlon"
+nbs_path = "nbs"
+recursive = true
+tst_flags = "notest"
+put_version_in_init = true
+custom_sidebar = true
+doc_host = "https://www.matlon.ch"
+doc_baseurl = "/"
+branch = "main"
+user = "mtln"
+repo = "matlon"
+title = "matlon"
+black_formatting = false
+
+[tool.setuptools.packages.find]
+include = ["matlon*"]
