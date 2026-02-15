@@ -1,0 +1,595 @@
+[
+  {
+    "objectID": "tlqrbill.html",
+    "href": "tlqrbill.html",
+    "title": "tl-qrbill",
+    "section": "",
+    "text": "(Because this is a tool specifically for Swiss QR Bills, this page is in German instead of English.)",
+    "crumbs": [
+      "Gschichtefritz",
+      "tl-qrbill"
+    ]
+  },
+  {
+    "objectID": "tlqrbill.html#wozu-tl-qrbill",
+    "href": "tlqrbill.html#wozu-tl-qrbill",
+    "title": "tl-qrbill",
+    "section": "Wozu tl-qrbill?",
+    "text": "Wozu tl-qrbill?\nTeamleader ist eine leistungsstarke web-basierte CRM/ERP-Lösung von einem belgischen Software-Anbieter. Sie unterstützt die Rechnungsstellung, jedoch ist die Funktionalität für Schweizer QR-Einzahlungsscheine nicht integriert. Mit tl-qrbill von matlon GmbH können Sie QR-Einzahlungsscheine für Ihre Rechnungen generieren und diese einzeln oder zusammen mit der Rechnung als PDF herunterladen.\nScreencast: \nInfos: tl-qrbill.matlon.ch",
+    "crumbs": [
+      "Gschichtefritz",
+      "tl-qrbill"
+    ]
+  },
+  {
+    "objectID": "tlqrbill.html#sequenzdiagramm",
+    "href": "tlqrbill.html#sequenzdiagramm",
+    "title": "tl-qrbill",
+    "section": "Sequenzdiagramm",
+    "text": "Sequenzdiagramm\n\n\n\n\n\nsequenceDiagram\n    actor User as Benutzer\n    participant CRM as Teamleader\n    participant sys as tl-qrbill&lt;br&gt;CH QRBill-Einzahlungsscheine PDF&lt;br&gt;für Teamleader Rechnungen generieren\n    User-&gt;&gt;CRM: Rechnung erstellen\n    activate sys\n    User-&gt;&gt;sys: QR-Bill PDF herunterladen\n    sys-&gt;&gt;CRM: Rechnungsdaten abholen\n    sys-&gt;&gt;sys: Rechnungsdaten validieren\n    sys-&gt;&gt;sys: QR-Bill PDF generieren\n    sys-&gt;&gt;User: QR-Bill PDF\n    deactivate sys",
+    "crumbs": [
+      "Gschichtefritz",
+      "tl-qrbill"
+    ]
+  },
+  {
+    "objectID": "mts.html",
+    "href": "mts.html",
+    "title": "mts",
+    "section": "",
+    "text": "(Because this is a tool specifically for the Swiss healthcare system, this page is in German instead of English.)",
+    "crumbs": [
+      "Gschichtefritz",
+      "mts"
+    ]
+  },
+  {
+    "objectID": "mts.html#wozu-mts",
+    "href": "mts.html#wozu-mts",
+    "title": "mts",
+    "section": "Wozu mts?",
+    "text": "Wozu mts?\nZitat von der ZAS-Website:\n\n“Die ZAS strebt langfristig eine fast ausschliesslich elektronische Bearbeitung von Rechnungen für individuelle AHV/IV-Leistungen an.”\n\nLeistungserbringer, deren Software nicht in der Lage ist, Rechnungen in das GeneralInvoice-XML-Format zu exportieren und zu übermitteln, stellt dies vor grosse Herausforderungen. Sie müssen entweder auf eine neue Software umsteigen, oder die Rechnungen nochmals mit allen Details manuell in einem Web-Formular erfassen.\nMit mts bietet matlon ein schlankes Tool an, welches alle notwendigen Rechnungsdaten aus dem vorhandenen ERP exportiert, validiert und in das GeneralInvoice-XML-Format umwandelt. mts orchestriert die anschliessende Übermittlung dieser Daten via MediData-Netz an die ZAS und die Verarbeitung und Quittierung allfälliger Rückweisungs-Meldungen der ZAS / IV-Stellen.\nScreenshot: \nDie GeneralInvoice TP Rechnungen können auch als PDF heruntergeladen werden. Für Rechnungen aus privaten Aufträgen (die nicht über die IV abgerechnet werden) kann mts auch QR-Einzahlungsscheine generieren.",
+    "crumbs": [
+      "Gschichtefritz",
+      "mts"
+    ]
+  },
+  {
+    "objectID": "mts.html#welche-erp-systeme-werden-unterstützt",
+    "href": "mts.html#welche-erp-systeme-werden-unterstützt",
+    "title": "mts",
+    "section": "Welche ERP-Systeme werden unterstützt?",
+    "text": "Welche ERP-Systeme werden unterstützt?\nWir programmieren im Rahmen eines Projekts einen Adapter, der exakt zu Ihrem vorhandenen System und den dortigen Datenstrukturen passt. Das Ziel ist es, dass die bereits vorhandene Software bestmöglich genutzt werden kann und die elektronische Rechnungsstellung gegenüber der IV / ZAS für Sie mit minimalem Zusatzaufwand möglich wird. Für b-at.ch haben wir beispielsweise einen Adapter geschrieben, der die Daten aus der Teamleader-Software exportiert. Das UI ist ebenfalls projektspezifisch an die Bedürfnisse angepasst und soll den Prozess so einfach wie möglich machen.",
+    "crumbs": [
+      "Gschichtefritz",
+      "mts"
+    ]
+  },
+  {
+    "objectID": "mts.html#sequenzdiagramm",
+    "href": "mts.html#sequenzdiagramm",
+    "title": "mts",
+    "section": "Sequenzdiagramm",
+    "text": "Sequenzdiagramm\n\n\n\n\n\nsequenceDiagram\n    actor User as Benutzer\n    participant ERP as ERP&lt;br&gt;z.B. Teamleader\n    participant mts as mts&lt;br&gt;ERP Daten zu generalInvoice XML Format&lt;br&gt;Daten-Konverter Plattform für Leistungsabrechnungen\n    participant MediData\n    participant D as Empfänger&lt;br&gt;z.B. IV/ZAS\n    User-&gt;&gt;ERP: Rechnung erstellen\n    mts-&gt;&gt;+ERP: neue Rechnungen abholen\n    mts-&gt;&gt;+mts: Rechnungen validieren und als XML aufbereiten\n    activate mts\n    User-&gt;&gt;mts: Prüfen und Freigabe\n    mts-&gt;&gt;MediData: Rechnung übermitteln\n    mts-&gt;&gt;ERP: Status-Notiz erstellen\n    deactivate mts\n    MediData-&gt;&gt;+D: Rechnung weiterreichen\n    D-&gt;&gt;D: Rechnung prüfen, falls abgewiesen: Nachricht\n    D-&gt;&gt;+MediData: Resultat zurückmelden\n    activate mts\n    mts-&gt;&gt;+MediData: Resultate und Nachrichten abholen\n    mts-&gt;&gt;+ERP: Status-Notiz erstellen\n    deactivate mts\n    User-&gt;&gt;mts: Nachrichten ansehen und Quittieren",
+    "crumbs": [
+      "Gschichtefritz",
+      "mts"
+    ]
+  },
+  {
+    "objectID": "mts.html#statusdiagramm",
+    "href": "mts.html#statusdiagramm",
+    "title": "mts",
+    "section": "Statusdiagramm",
+    "text": "Statusdiagramm\n\n\n\n\n\nstateDiagram-v2\n    [*] --&gt; ignoriert: Ignorieren Aktion\n    [*] --&gt; registriert: Sync Aktion\n    registriert --&gt; validiert: Validierung erfolgreich\n    registriert --&gt; Validierung_fehlgeschlagen: Validierungsfehler\n    Validierung_fehlgeschlagen --&gt; validiert: Sync Aktion\n    Validierung_fehlgeschlagen --&gt; ignoriert: Ignorieren Aktion\n    validiert --&gt; exportiert_zu_MediData: Zu MediData hochladen Aktion\n    validiert --&gt; validiert: Sync Aktion\n    validiert --&gt; ignoriert: Ignorieren Aktion\n    validiert --&gt; Export_zu_MediData_fehlgeschlagen: Zu MediData hochladen Aktion, MediData nicht erreichbar\n    exportiert_zu_MediData --&gt; akzeptiert: Zahlungseingang\n    exportiert_zu_MediData --&gt; zurückgewiesen: Antwort oder Notifikation\n    Export_zu_MediData_fehlgeschlagen --&gt; exportiert_zu_MediData: Zu MediData hochladen Aktion\n    zurückgewiesen --&gt; [*]: Nachdem Antwort oder Notifikation bestätigt wurde\n    akzeptiert --&gt; [*]\n    ignoriert --&gt; [*]\n    \n    note right of registriert: temporärer Übergangsstatus\n    \n    classDef transient stroke-dasharray: 5 5, fill: white\n    class registriert transient",
+    "crumbs": [
+      "Gschichtefritz",
+      "mts"
+    ]
+  },
+  {
+    "objectID": "imprint.html",
+    "href": "imprint.html",
+    "title": "Imprint",
+    "section": "",
+    "text": "Address\nmatlon GmbH\nRainstrasse 49\n8038 Zürich\n\n\nCommunication\nE-Mail: info@matlon.ch\n\n\nCommercial Register\nHandelsregister des Kantons Zürich, CHE-226.990.458\n\n\nDisclaimer\nThe operator reserves the right to change the information and offers on this website at any time and without prior notice and is not obligated to update the contained information and offers. He assumes no responsibility for the correctness, accuracy, timeliness, reliability, or completeness of the information. Liability claims for material or immaterial damages arising from access to, use or non-use of the published information, misuse of the connection, or technical disturbances are excluded. Despite careful content control, the operator assumes no liability for the content of external links and content. The respective operators and authors are solely responsible for the embedded or linked content.",
+    "crumbs": [
+      "Gschichtefritz",
+      "Imprint"
+    ]
+  },
+  {
+    "objectID": "andri.html",
+    "href": "andri.html",
+    "title": "Andri’s Projects",
+    "section": "",
+    "text": "G\n\n\n\ncategory\n\nAI\n\n\n\nDino Stampf Deep Learning\n\n\nDino Stampf Deep Learning\n\n\n\n\n\nDino Stampf Deep Learning--category\n\n\n\n\nGschichtefritz\n\nGschichtefritz\n\n\n\nDino Stampf Deep Learning--Gschichtefritz\n\n\n\n\nbatGPT\n\n\nbatGPT\n\n\n\n\n\nbatGPT--category\n\n\n\n\ndocGPT\n\n\ndocGPT\n\n\n\n\n\ndocGPT--category\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nG\n\n\n\ncategory\n\nearly projects\n\n\n\nPatient\n\n\nPatient\n\n\n\n\n\nPatient--category\n\n\n\n\nOhr\n\n\nOhr\n\n\n\n\n\nOhr--category\n\n\n\n\nTeltax\n\n\nTeltax\n\n\n\n\n\nTeltax--category\n\n\n\n\nPublicSecrets\n\n\nPublicSecrets\n\n\n\n\n\nPublicSecrets--category\n\n\n\n\nAnelec\n\n\nAnelec\n\n\n\n\n\nAnelec--category\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nG\n\n\n\ncategory\n\nlong-term projects\n\n\n\nPublicSecrets\n\n\nPublicSecrets\n\n\n\n\n\nPublicSecrets--category\n\n\n\n\nGschichtefritz\n\n\nGschichtefritz\n\n\n\n\n\nGschichtefritz--category\n\n\n\n\nGschichtefritz App\n\n\nGschichtefritz App\n\n\n\n\n\nGschichtefritz--Gschichtefritz App\n\n\n\n\ngschichtefritz.ch legacy\n\n\ngschichtefritz.ch legacy\n\n\n\n\n\nGschichtefritz--gschichtefritz.ch legacy\n\n\n\n\ngschichtefritz.ch current\n\ngschichtefritz.ch current\n\n\n\nGschichtefritz--gschichtefritz.ch current\n\n\n\n\nGschichtefritz Affiliate\n\nGschichtefritz Affiliate\n\n\n\nGschichtefritz--Gschichtefritz Affiliate\n\n\n\n\nVisualMix\n\nVisualMix\n\n\n\nGschichtefritz--VisualMix\n\n\n\n\nDino Stampf Deep Learning\n\nDino Stampf Deep Learning\n\n\n\nGschichtefritz--Dino Stampf Deep Learning\n\n\n\n\nGschichtefritz App--category\n\n\n\n\nGschichtefritz App--gschichtefritz.ch legacy\n\n\n\n\nGschichtefritz App--gschichtefritz.ch current\n\n\n\n\nGschichtefritz App--Gschichtefritz Affiliate\n\n\n\n\ngschichtefritz.ch legacy--category\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nG\n\n\n\ncategory\n\nmiscellaneous\n\n\n\ngschichtefritz.ch current\n\n\ngschichtefritz.ch current\n\n\n\n\n\ngschichtefritz.ch current--category\n\n\n\n\nGschichtefritz\n\nGschichtefritz\n\n\n\ngschichtefritz.ch current--Gschichtefritz\n\n\n\n\nGschichtefritz App\n\nGschichtefritz App\n\n\n\ngschichtefritz.ch current--Gschichtefritz App\n\n\n\n\nGschichtefritz Affiliate\n\n\nGschichtefritz Affiliate\n\n\n\n\n\ngschichtefritz.ch current--Gschichtefritz Affiliate\n\n\n\n\nGschichtefritz Affiliate--category\n\n\n\n\nGschichtefritz Affiliate--Gschichtefritz\n\n\n\n\nGschichtefritz Affiliate--Gschichtefritz App\n\n\n\n\nBrainwaver: Pink Noise\n\n\nBrainwaver: Pink Noise\n\n\n\n\n\nBrainwaver: Pink Noise--category\n\n\n\n\nmts\n\n\nmts\n\n\n\n\n\nmts--category\n\n\n\n\ntl-qrbill\n\n\ntl-qrbill\n\n\n\n\n\ntl-qrbill--category\n\n\n\n\nbringo\n\n\nbringo\n\n\n\n\n\nbringo--category\n\n\n\n\nchat-export\n\n\nchat-export\n\n\n\n\n\nchat-export--category\n\n\n\n\nRunning Wheel Tracker\n\n\nRunning Wheel Tracker\n\n\n\n\n\nRunning Wheel Tracker--category\n\n\n\n\neasypaste\n\n\neasypaste\n\n\n\n\n\neasypaste--category\n\n\n\n\nshuffle_spotify_playlist\n\n\nshuffle_spotify_playlist\n\n\n\n\n\nshuffle_spotify_playlist--category\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nG\n\n\n\ncategory\n\nmusic\n\n\n\nOhr\n\n\nOhr\n\n\n\n\n\nOhr--category\n\n\n\n\nWiiMIDIi\n\n\nWiiMIDIi\n\n\n\n\n\nWiiMIDIi--category\n\n\n\n\nVisualMix\n\n\nVisualMix\n\n\n\n\n\nVisualMix--category\n\n\n\n\nGschichtefritz\n\nGschichtefritz\n\n\n\nVisualMix--Gschichtefritz\n\n\n\n\nshuffle_spotify_playlist\n\n\nshuffle_spotify_playlist\n\n\n\n\n\nshuffle_spotify_playlist--category",
+    "crumbs": [
+      "Gschichtefritz",
+      "Andri Krämer",
+      "Andri's Projects"
+    ]
+  },
+  {
+    "objectID": "andri.html#patient",
+    "href": "andri.html#patient",
+    "title": "Andri’s Projects",
+    "section": "Patient",
+    "text": "Patient\n1991 - 1994\n\nEarly DOS software for patient management\n\nMy first software that was used productively was called ‘Patient’. I wrote it as a teenager in Turbo Pascal for my mother, who, in addition to being a housewife, also worked part-time as a self-employed physiotherapist. The DOS application was multicolored and could be operated with a mouse. We had an Intel 80386 DX 20 MHz computer with a 1 GB hard drive and a simple dot-matrix printer. With my patient management software, one could not only schedule appointments and do the accounting, but also directly fill out the yellow forms that had to be submitted to the disability insurance (IV) for billing. At the time, my mother was probably the only physiotherapist who sent forms to the insurance not handwritten but neatly filled out by a printer 😀.\n\n\n\nPatient menu screenshot\n\n\nThe completely exaggerated title ‘Physikalisch-Therapeutisches Institut Ruth Krämer & Co.’ was, of course, meant as a family insider joke.\n\n\n\nPatient detail screenshot\n\n\n\nCategories\n\nearly projects",
+    "crumbs": [
+      "Gschichtefritz",
+      "Andri Krämer",
+      "Andri's Projects"
+    ]
+  },
+  {
+    "objectID": "andri.html#ohr",
+    "href": "andri.html#ohr",
+    "title": "Andri’s Projects",
+    "section": "Ohr",
+    "text": "Ohr\n1992 - 1994\n\nEar trainer for musicians\n\nMusic was always my great love. After high school, I went to the Jazz School in Lucerne, but later decided to pursue a degree in computer science at ETH Zurich. Ear training is essential in music, so I programmed ‘Ohr’, a software for ear training, which allowed users to practice recognizing intervals, chords and their inversions, scales, and so on. To make it possible to practice on the go (laptops didn’t exist yet), the software included a feature for creating exercises that could be recorded directly onto cassette. In parallel, the solutions were printed out so that one could practice with a Walkman and a sheet of paper wherever they wanted. The Sound Blaster card was the first to support speech synthesis and could be used with a text-to-speech command-line tool c:\\sb\\sbtalker\\say.exe. So, to keep track during practice, every 10 exercises were announced.\n\n\n\nSoundblaster\n\n\n\nCategories\n\nearly projects\nmusic",
+    "crumbs": [
+      "Gschichtefritz",
+      "Andri Krämer",
+      "Andri's Projects"
+    ]
+  },
+  {
+    "objectID": "andri.html#teltax",
+    "href": "andri.html#teltax",
+    "title": "Andri’s Projects",
+    "section": "Teltax",
+    "text": "Teltax\n1995 - 1999\n\nDial-In modem costs calculator and splitter\n\nTo access the internet back then, you had to dial in via a modem over the phone line. There was a basic charge for establishing the connection and a per-minute fee with three different time-based pricing levels. Internet costs could quickly become very high, and if you lived in a shared apartment or worked remotely for an employer, you needed to know for each ‘internet session’ when it happened, how long it lasted, and who would be responsible for paying at the end of the month.\nThat’s exactly why I wrote Teltax. It was activated each time a modem connection ended, allowing you to specify whose account the costs should be charged to. The details were read from the technical log of the Win95 modem driver (e.g., c:\\win95\\ModemLog_Zeus 336E External 33600 Fax Modem.txt). Then, the costs were calculated based on the three different price levels and written into a log file. At the end of the billing period, a total cost per user was calculated. Additionally, the data volume was analyzed, and the cost per megabyte was calculated. Since charges were based on time rather than data volume back then, the goal was, of course, to keep the cost per megabyte as low as possible by truly using the connection and not keeping it open for too long.\n\n\n\nTeltax summary screenshot\n\n\n\nCategories\n\nearly projects",
+    "crumbs": [
+      "Gschichtefritz",
+      "Andri Krämer",
+      "Andri's Projects"
+    ]
+  },
+  {
+    "objectID": "andri.html#publicsecrets",
+    "href": "andri.html#publicsecrets",
+    "title": "Andri’s Projects",
+    "section": "PublicSecrets",
+    "text": "PublicSecrets\n1997 - 2007\n\nThe really social network before social networks\n\nThe World Wide Web was still in its infancy. There was no Google, no PHP, no WordPress, and no Facebook. But there was PublicSecrets—a blend of social networking and productivity platform. I began developing PublicSecrets in 1997 and continued to expand it over the years. It was used by all of my friends and even friends of friends\n\nFeatures\n\nOpenAlbum\n\nPut your photos online. Select from different style templates. Decide whether the album should be public, restricted to PublicSecrets users, restricted to your friends, to a list of friends or private (‘secret’). Create slideshows. Get user comments. Add ‘order picture’ button (for print orders) and even use an album as gift list for weddings or birthdays (add ‘I give this to you as a present’ button that disappears when somebody has already clicked it). OpenAlbum provides detailed access statistics.\n\n\nYears later, similar services such as Picasa (acquired by Google in 2004) were launched.\n\nAddress Book\n\nAdd entries and decide which of your friends you want to share each entry with. Duplicates are actively avoided: If you add an address that a friend has already added, you’ll gain access to the existing record instead of creating a duplicate. All friends have read and write access to shared records, ensuring that the data remains well-maintained and up-to-date. You’ll never forget a friend’s birthday, as PublicSecrets sends you email reminders and displays a list of upcoming birthdays after you log in. Addresses can also be grouped into address lists.\n\nBookmarks\n\nIndividual bookmarks / links can be shared and grouped hierarchically. The bookmark check tool reports invalid/outdated bookmarks.\n\n\n\n\n\nPublicSecrets Bookmarks screenshot. btw: the color theme was customizable…\n\n\n\nNotes\n\nManage your personal notes.\n\nPSMail\n\nPublicSecrets Mail is a webmail client allowing you to create new mail accounts or registering existing (third-party) e-mail accounts. It provides full text search capabilities, shared e-mail accounts, aliases, mailing list management, virus scanning, spam filtering and folders.\n\n\nPSMail was available long before Gmail or Yahoo Mail.\n\nPSFile\n\nFiles can be shared with other PublicSecrets users. All uploads are scanned for viruses. Files can be encrypted using individual passphrases. PSFiles can also be attached to PSMail messages.\n\n\nThe PSFile cloud file store was already available when the word ‘cloud’ had no other meaning and there was no Google Drive, Dropbox or Microsoft OneDrive.\n\nPSEvent\n\nFor the legendary Würstli Wednesday events, I built a somewhat sophisticated event management system into PublicSecrets. It works like this: You can define a new event in PS, including a description, date, time, etc. Afterwards, you add items (e.g., beer, potato chips, potato salad) to the event and determine how many participants are needed per item (e.g., potato chips for every 3 participants, potato salad for every 10 participants, etc.). Using the PS address book, you can invite guests and send them an invitation via PSMail. On the event homepage, guests can sign up or opt-out. For events with gadgets, each guest can see which gadgets are currently needed and select which one(s) they would like to bring themselves. All guests can see who has signed up or opted out and who is bringing what. The ultimate tool for “self-organizing parties”.\n\nPSAccounting\n\nCreate a cash book, assign people from your address book as members and start your shared accounting. Each entry has a date, an amount, a member involved as creditor and one or more involved as debtors. At each moment, any member can see the current total of expenses and debts and how much who would have to pay to whom in order to re-balance the account (pay off all debts with the smallest number of transactions).\n\n\nThis was exactly what later became popular with apps like Splittr - but years before the iPhone was invented.\n\nPSDocs\n\nUpload any zipped documentation. It gets unzipped and indexed by the built-in full-text search engine.\n\n\nThe best thing, software develpers could dream of at that time to quickly browse JavaDocs etc.\n\nPS GarbageAlert\n\nReminds you of the waste paper or cardboard collection dates for the district you live in. Only for Zurich.\n\n\nYears later, ERZ (Entsorgung + Recycling Zürich) came up with a similar service.\n\nPSVote\n\nIdeas for extensions are proposed here and all users can vote on them.\n\n\nPublicSecrets was written in ColdFusion and ran on a Windows NT server.\n\n\nCategories\n\nearly projects\nlong-term projects",
+    "crumbs": [
+      "Gschichtefritz",
+      "Andri Krämer",
+      "Andri's Projects"
+    ]
+  },
+  {
+    "objectID": "andri.html#wiimidii",
+    "href": "andri.html#wiimidii",
+    "title": "Andri’s Projects",
+    "section": "WiiMIDIi",
+    "text": "WiiMIDIi\n2007 - 2008\n\nUsing a Nintendo Wiimote for guitar motion sensing and converting accelerometer data to MIDI\n\nFor our concerts with Amtsbladt, a Swiss electro-pop duo where I was responsible for composition and music, and my friend Phil handled lyrics and vocals, I wrote software to convert the movements of the guitar neck into MIDI signals. I had attached a Wiimote to the guitar head. With quick movements in different directions, I could trigger samples, and with slower movements, I could control parameters of the guitar effects. In addition, I could use the Wiimote buttons to control Ableton Live (start tracks).\n\n\n\n\n\nflowchart TD\n    A1[Wiimote] --&gt;|Bluetooth| B(Computer)\n    B --&gt; C{WiiMIDIi}\n    C --&gt; |MIDI| D(Ableton Live)\n    C --&gt; |MIDI| E[NI Guitar Rig]\n    \n\n\n\n\n\n\nThere’s nothing more boring at concerts than guys on stage sitting behind a laptop. As an audience member, you have no idea if what they’re doing has anything to do with what you’re hearing or if they’re just checking their emails or stock prices. That’s why I was behind the guitar and not behind a computer.\nFor the Guitar Rig Hero Contest by Native Instruments, I demonstrated my setup in a rather silly video 🤣.\n\n\n\nWatch WiiMIDIi demo on YouTube\n\n\n\nCategories\n\nmusic",
+    "crumbs": [
+      "Gschichtefritz",
+      "Andri Krämer",
+      "Andri's Projects"
+    ]
+  },
+  {
+    "objectID": "andri.html#gschichtefritz",
+    "href": "andri.html#gschichtefritz",
+    "title": "Andri’s Projects",
+    "section": "Gschichtefritz",
+    "text": "Gschichtefritz\n2009 -\n\nAudio stories with songs for children\n\nUnder the artist pseudonym ‘Gschichtefritz’, I wrote over 70 Swiss-German audio stories with songs. I narrated each story, sang the songs, and produced everything in my own studio. My distribution method was one of a kind: each story was prepared on-demand, complete with a personal dedication in the introduction. For example, “This story is for Anna, a gift from Uncle Fred.” The stories were available on CD and/or as MP3 downloads, with payment on a voluntary, pay-what-you-want basis. This system was supported by sophisticated software, which I developed and continuously enhanced over 15 years with new features.\nHowever, as CDs became less popular over time and I wanted to streamline my involvement, I made a pivotal change in 2023. I decided to end the physical distribution and personal dedications. Instead, I rebuilt the software from the ground up on a new technology stack, focusing on core features. Therefore, I now distinguish between two projects: ‘gschichtefritz.ch legacy’ and ‘gschichtefritz.ch current’.\n\n\n\n‘De Blaui Dino’ and ‘Roboter Beni’ are loved by thousands of children in Switzerland.\n\n\n\nCategories\n\nlong-term projects\n\n\n\nRelated projects\n\nGschichtefritz App\ngschichtefritz.ch legacy\ngschichtefritz.ch current\nGschichtefritz Affiliate\nVisualMix\nDino Stampf Deep Learning",
+    "crumbs": [
+      "Gschichtefritz",
+      "Andri Krämer",
+      "Andri's Projects"
+    ]
+  },
+  {
+    "objectID": "andri.html#gschichtefritz-app",
+    "href": "andri.html#gschichtefritz-app",
+    "title": "Andri’s Projects",
+    "section": "Gschichtefritz App",
+    "text": "Gschichtefritz App\n2020 -\n\nGschichtefritz audiobook player app for iOS and Android\n\nGschichtefritz offered MP3s from the very beginning. However, with the rise of streaming services, it became clear that customers were finding it increasingly challenging to download MP3s and transfer them to iPods, tablets, or smartphones. To address this issue, I developed a player app in 2020. The free Gschichtefritz App lets you download all your stories, so you can listen to them offline whenever you want. It’s also designed to be easily operated by young children, even those who can’t read yet.\nFramework: Xamarin, 2023-2026: Maui, 2026-today: Flutter/Dart\nProgramming Language: C#, now Dart\nPlatforms: iOS and Android\n\n\n\nGschichtefritz App Screenshot\n\n\n\nCategories\n\nlong-term projects\n\n\n\nRelated projects\n\nGschichtefritz\ngschichtefritz.ch legacy\ngschichtefritz.ch current\nGschichtefritz Affiliate",
+    "crumbs": [
+      "Gschichtefritz",
+      "Andri Krämer",
+      "Andri's Projects"
+    ]
+  },
+  {
+    "objectID": "andri.html#gschichtefritz.ch-legacy",
+    "href": "andri.html#gschichtefritz.ch-legacy",
+    "title": "Andri’s Projects",
+    "section": "gschichtefritz.ch legacy",
+    "text": "gschichtefritz.ch legacy\n2009 - 2023\n\nCRM, shop, CD burner automation, accounting, and more\n\nSome numbers (2009-2023):\n\nTotal orders: ~55’000\nTotal CDs burned and shipped: ~75’000\nTotal stories ordered: ~200’000\nAlthough payment was optional, about 80% of CDs and 70% of MP3s delivered sooner or later were paid for (with the amount chosen by the customer)\n\nRead countless testimonials from enthusiastic customers (in German).\nThe legacy gschichtefritz.ch code was written in Java and included a wide range of modules and functionalities. Here’s an overview.\n\n\n\n\n\nmindmap\n  root((GF legacy))\n    Shop\n      Regular Shop\n      Promo & Event Shops\n        Live orders at events\n      Coupons\n      Mass Orders for institutions\n      FB & Insta integration\n    Website\n      News: live sync from FB\n      Childrens drawings album: sync from FB \n      Live Events\n      Static CMS Pages\n    Email\n      Shop related Emails\n      Newsletters\n      Reminders\n    App Backend\n    Vaadin Admin UI\n    Accounting\n      Processing\n        TWINT\n        QR Bill\n        Stripe\n        Paypal\n        Postfinanace\n        camt files\n      Double entry bookkeeping\n      Reporting\n      Annual financial statements\n        Balance sheet\n        Income statement\n    Audiostore\n      Audioautogram\n        Recording\n        Delivery\n      Story\n        Concatenation\n        WAV & MP3 Encoding\n    Delivery Factory Client\n      CD Burning\n      Printing Letters\n    PDF\n      Letters and Invoices\n      Coloring pages\n    Inventory\n\n\n\n\n\n\n\nCategories\n\nlong-term projects\n\n\n\nRelated projects\n\nGschichtefritz\nGschichtefritz App",
+    "crumbs": [
+      "Gschichtefritz",
+      "Andri Krämer",
+      "Andri's Projects"
+    ]
+  },
+  {
+    "objectID": "andri.html#gschichtefritz.ch-current",
+    "href": "andri.html#gschichtefritz.ch-current",
+    "title": "Andri’s Projects",
+    "section": "gschichtefritz.ch current",
+    "text": "gschichtefritz.ch current\n2024 -\n\nShop and App backend\n\nThe current gschichtefritz.ch code is written in Python, utilizing FastAPI and Pydantic. It went live in January 2024. Functionality and complexity have been minimized. Payment options have been simplified to QR bill only. Accounting continues to be managed with the legacy software. With digital delivery only and no more personalized audio autographs, the entire process now runs fully automated, without any human interaction.\nHere’s an overview.\n\n\n\n\n\nmindmap\n  root((GF current))\n    Shop\n      Login\n      QR Bill\n        Delivery: PDF\n        Processing: Activate order\n      MP3 Download\n    Website\n    Email\n      Shop related Emails\n    App Backend\n      Onboarding\n      Delivery\n\n\n\n\n\n\nIn August 2025, the ecosystem has been expanded with the introduction of Gschichtefritz Affiliate .\n\nCategories\n\nmiscellaneous\n\n\n\nRelated projects\n\nGschichtefritz\nGschichtefritz App\nGschichtefritz Affiliate",
+    "crumbs": [
+      "Gschichtefritz",
+      "Andri Krämer",
+      "Andri's Projects"
+    ]
+  },
+  {
+    "objectID": "andri.html#gschichtefritz-affiliate",
+    "href": "andri.html#gschichtefritz-affiliate",
+    "title": "Andri’s Projects",
+    "section": "Gschichtefritz Affiliate",
+    "text": "Gschichtefritz Affiliate\n2025 -\n\nStand-alone affiliate programme for gschichtefritz.ch with full configurability and integration into the existing shop and app backend",
+    "crumbs": [
+      "Gschichtefritz",
+      "Andri Krämer",
+      "Andri's Projects"
+    ]
+  },
+  {
+    "objectID": "andri.html#technical-integration",
+    "href": "andri.html#technical-integration",
+    "title": "Andri’s Projects",
+    "section": "Technical Integration",
+    "text": "Technical Integration\nThe affiliate system was designed to require minimal changes to the existing shop and app backend codebase.\n\nThe Affiliate Server exposes an API to the main application, providing affiliate configurations for:\n\nRendering the public affiliate information page\n\nApplying rebates in the shopping basket\n\nGranting access to bonus package content\n\nThe shop reports back to the Affiliate Server whenever:\n\nA new customer registers through an affiliate\n\nA purchase is made by an affiliate-linked customer",
+    "crumbs": [
+      "Gschichtefritz",
+      "Andri Krämer",
+      "Andri's Projects"
+    ]
+  },
+  {
+    "objectID": "andri.html#data-management",
+    "href": "andri.html#data-management",
+    "title": "Andri’s Projects",
+    "section": "Data Management",
+    "text": "Data Management\nWhile the data models and application code are kept separate, all data resides in the same PostgreSQL database using dedicated schemas.\nThis approach ensures:\n- Minimal interference during development\n- Maximum flexibility for reporting and data analysis\nHere’s an overview.\n\n\n\n\n\nsequenceDiagram\n    participant Affiliate\n    participant AffiliateApp as Affiliate Application\n    participant ShopApp as Shop Application\n    participant Customer\n    participant DB as PostgreSQL (separate schemas)\n\n    %% Affiliate registers\n    Affiliate-&gt;&gt;AffiliateApp: Create profile / Register\n    AffiliateApp-&gt;&gt;DB: Store affiliate profile\n    ShopApp-&gt;&gt;AffiliateApp: Fetch and cache affiliate configs\n  \n    %% Customer visits affiliate page\n    Customer-&gt;&gt;ShopApp: Visit affiliate public info page\n  \n    %% Customer registers via affiliate\n    Customer-&gt;&gt;ShopApp: Register (via affiliate link)\n    \n    %% Customer downloads free stories\n    Customer-&gt;&gt;ShopApp: Download free stories (bonus pack)\n    ShopApp-&gt;&gt;AffiliateApp: Notify event (new customer acquired)\n    AffiliateApp-&gt;&gt;DB: Store new affiliate-customer relation\n\n    %% Customer makes a purchase\n    Customer-&gt;&gt;ShopApp: Purchase product\n    ShopApp-&gt;&gt;AffiliateApp: Notify event (purchase by affiliate-linked customer)\n    AffiliateApp-&gt;&gt;DB: Store purchase / commission\n    ShopApp--&gt;&gt;Customer: Apply rebate\n  \n    %% Affiliate dashboard\n    Affiliate-&gt;&gt;AffiliateApp: View dashboard / stats\n    AffiliateApp-&gt;&gt;DB: Query affiliate data\n    AffiliateApp--&gt;&gt;Affiliate: Show commissions, revenue\n\n    Note over ShopApp,AffiliateApp: API-based integration  \n    Note over DB: Shared database&lt;br/&gt;separate schemas\n\n\n\n\n\n\n\n\n\nGschichtefritz Affiliate Dashboard\n\n\n\nCategories\n\nmiscellaneous\n\n\n\nRelated projects\n\nGschichtefritz\nGschichtefritz App\ngschichtefritz.ch current",
+    "crumbs": [
+      "Gschichtefritz",
+      "Andri Krämer",
+      "Andri's Projects"
+    ]
+  },
+  {
+    "objectID": "andri.html#visualmix",
+    "href": "andri.html#visualmix",
+    "title": "Andri’s Projects",
+    "section": "VisualMix",
+    "text": "VisualMix\n2022 - 2022\n\nMix and arrangement of a song visualized\n\n\nIdea\nIn 2022, I recorded a new song with the same friends with whom I had recorded the Dino Songs CD ten years earlier: “10 chlini Rägetropfe” (10 Little Raindrops). The song has great dynamics and a varied arrangement, making it quite tricky to hear exactly when each instrument comes in or drops out. That’s how I got the idea to make this visible for listeners in a video! During my readings at schools, I like to explain to students how multitrack recording works and then show them the video. Below, I’ll briefly explain how I did it.\n\n\nTracks\nThe song consists of 9 audio tracks: vocals, 3 guitar tracks, bass, accordion, piano, harmonica, and drums. Strictly speaking, the drum track is a so-called group track, which itself is made up of several individual tracks (bass drum, snare, etc.) as well as additional percussion tracks (tambourine, etc.). For simplicity (and because it’s not possible to record them separately with an acoustic drum kit), these have been combined into a single track.\n\n\nTrack analysis\n\n\nIn the first step, I calculated the volume information (RMS values) from each track, as I’ll need this for the animation later. Here’s what that looks like:  The diagram shows the volume of each track over the entire duration of the song, indicating when and how loudly each one is present in the mix. I also assigned an appropriate instrument image to each track (for the vocals: a microphone). For each track, I needed coordinates for where the instrument image should appear. Since I’m using the cover illustration with the cloud and raindrops as the video background, I placed the instruments on individual “raindrops.” Instruments that are heard more on the left in stereo/headphones are assigned coordinates for raindrops on the left side. Drums and bass are centered, as is the vocal.\n\n\n\n\nGenerating images\nIn the next step, I create the images. A video essentially consists of individual images displayed in rapid succession so that the brain perceives them as continuous motion. A typical frame rate is 25, meaning 25 images per second. For the entire song, which is 231 seconds long, I need around 5,800 images. These are “assembled” one by one like a collage, with the size of each instrument at any given moment reflecting its volume—essentially, the “amplitude” shown in the track plot above. Each instrument image has a maximum square size limit so that they don’t overlap too much. For instance, when an image reaches its maximum width, it can still grow in the other dimension (height) until it forms a square. This effect can be seen with the bass guitar, which becomes thicker rather than longer during loud notes.\nThe 5,800 images are saved sequentially. For example, the 3,000th image, saved as frame_03000.jpg, represents the song position at 2 minutes and 0 seconds (120 seconds), because 120 seconds * 25 frames = the 3,000th image.\n\n\n\nSample Image from the video\n\n\nTo make all instruments briefly visible at the very start of the song (when the drums are still creating quiet wind and rain sounds), I replaced the images for the first two seconds with a small “instrument shrink” animation.\n\n\nCreating the video\nIn the final step, I simply needed to convert the 5,800 images along with the fully mixed audio track into an MP4 video. The result looks like this: YouTube.\n\n\nCode\nWant to know exactly how I did it? You can find the program code here: GitHub link: VideoGeneratorForMultiTrackAudio.\n\n\nCategories\n\nmusic\n\n\n\nRelated projects\n\nGschichtefritz",
+    "crumbs": [
+      "Gschichtefritz",
+      "Andri Krämer",
+      "Andri's Projects"
+    ]
+  },
+  {
+    "objectID": "andri.html#dino-stampf-deep-learning",
+    "href": "andri.html#dino-stampf-deep-learning",
+    "title": "Andri’s Projects",
+    "section": "Dino Stampf Deep Learning",
+    "text": "Dino Stampf Deep Learning\n2017 - 2017\n\nPre-LLM AI generated pseudo-Swiss German lyrics\n\n\nIdea\nThe machine is meant to become the artist, and Gschichtefritz will present this “machine art” to explore the boundaries between artificial intelligence and artistic intelligence.\nNote: The Transformer architecture, and thus the Large Language Models (LLMs) like GPT based on it, did not exist at that time.\n\n\nConcept\nThe song Dino Stampf Stampf, now with 35 verses (from the children’s stories of the Blue Dino), will serve as a “large existing dataset” / “Big Data.” The computer is meant to learn from this text alone. It won’t receive any additional information about language, words, grammar, or anything else. Afterward, the computer should generate text on its own.\n\n\nResult\nI read the generated text aloud a video:\n\n\n\nYouTube Video\n\n\nOccasionally, words or short phrases from the original text appeared, followed by various word mixes or entirely new words that still sounded like Swiss German. The result reminds me of Dadaism and Franz Hohler’s Totemügerli, with the difference that the text wasn’t created by a human but was written by a computer within milliseconds.\n\n\nHow Does It Work?\nI used a character-based Recurrent Neural Network with Long Short-Term Memory cells, or “LSTM RNN.” Character-based means that instead of feeding words into the computer, we give it individual characters. Since capitalization is irrelevant for this task, I converted all letters to lowercase. For instance, “Gmües” becomes “gmües,” reducing the song’s character vocabulary to 38 distinct symbols (lowercase letters “abcdef…z,” umlauts “üöä,” punctuation, spaces, and line breaks). The neural network is then trained to predict the next character by providing it with the current text and the correct answer, character by character. In machine learning, this is called “supervised learning,” where the network receives both input and the correct output during training.\nHere’s a step-by-step example: The network should learn from the text “gmües iss ich de ganzi tag.”\n\nTraining:\n\nThe first character (“g”) is provided as input, with the “correct answer”—the expected output—being the next character, “m” from “gmües.” It’s like saying, “If you want to learn what I’m teaching, you first need to know that after ‘g’ comes ‘m.’”\nThe second character, “m,” is given as input with the expected output “ü.” It’s like telling the network, “If you see an ‘m’ and previously saw a ‘g,’ you should output ‘ü’.” The network must remember the “g” from the previous step, hence the use of a “Recurrent Neural Network,” which relies not only on the current input but also on the sequence of previous inputs. LSTM cells provide the ability to store this context information.\nThe third character, “ü,” is given as input with “e” as the output.\nThe fourth character, “e,” is given as input with “s” as the output.\nThe fifth character, “s,” is given as input with a space ” ” as the output. By now, the network has learned the word “gmües” and that it should be followed by a space. This process is repeated across the entire 6,662-character song many times. I deliberately left out the chorus.\n\n\n\nSampling:\nNext, we feed the neural network an initial sequence (e.g., “wa”) and repeatedly ask for the next character. This quickly results in a text of any desired length.\nA neural network’s quality isn’t judged by how well it memorizes the input. Memorizing is trivial for a computer. The goal is to learn something general, producing fitting output even for previously unseen input. This also influences training. If the network’s settings (hyperparameters) are unsuitable or the training period is too short, it will underfit, generating short, random-looking character strings, like “wai se ee i i snnih.” At the other extreme, if the network memorizes too much and is overtrained, it will largely replicate the original text it was trained on.\nThose familiar with the song may recognize in the generated output certain original phrases, alongside amusing, Swiss German-sounding words like “nürzs” or “gmüch,” or word variations like “furke” instead of “gurke.” The “denttergine” probably has something to do with an eggplant, and the “himbeerine” would certainly be something the Blue Dino would love to try.\nThis was inspired by Andrej Karpathy’s blog post The Unreasonable Effectiveness of Recurrent Neural Networks.\n\n\n\nCategories\n\nAI\n\n\n\nRelated projects\n\nGschichtefritz",
+    "crumbs": [
+      "Gschichtefritz",
+      "Andri Krämer",
+      "Andri's Projects"
+    ]
+  },
+  {
+    "objectID": "andri.html#brainwaver-pink-noise",
+    "href": "andri.html#brainwaver-pink-noise",
+    "title": "Andri’s Projects",
+    "section": "Brainwaver: Pink Noise",
+    "text": "Brainwaver: Pink Noise\n2013 - 2013\n\nNothing but binaural pink noise to get into the flow and focus\n\nBack in the mid-90s, while studying at ETH, I always carried a cassette with self-generated pink noise for my Walkman (I used Cool Edit for that). Later, of course, it was an MP3. In 2013, there was an opportunity to release an EP for free on Spotify and other streaming platforms. I used this to publish my pink noise tracks online under the name ‘Brainwaver’, so there’s no need for copying MP3s anymore.\nI listen to the tracks through headphones whenever I want to focus in a noisy environment or just unwind and relax. Pink noise masks external sounds and, unlike music, doesn’t distract. White noise has an evenly distributed intensity across the frequency spectrum (which can sound quite harsh). With pink noise, the intensity decreases as frequency increases; the lower frequencies are louder, while the higher ones are softer, creating a more pleasant sound—similar to a waterfall.\nThere’s a theory that the binaural modulation of noise, when listened to with headphones, can cause brain waves to synchronize with the modulation frequency, potentially inducing certain mental states (e.g., relaxation or heightened concentration). I’m not sure if that’s true, but binaurally modulated noise sounds less monotonous than pure pink noise—kind of like a helicopter circling above a waterfall.\nListen to Brainwaver: Pink Noise on Spotify or Apple Music\n\nCategories\n\nmiscellaneous",
+    "crumbs": [
+      "Gschichtefritz",
+      "Andri Krämer",
+      "Andri's Projects"
+    ]
+  },
+  {
+    "objectID": "andri.html#batgpt",
+    "href": "andri.html#batgpt",
+    "title": "Andri’s Projects",
+    "section": "batGPT",
+    "text": "batGPT\n2024 -\n\nWrite assessment reports for assistive technologies using AI\n\nbatGPT is an AI tool for writing assessment reports for assistive technologies, using large language models (LLMs). By selecting keywords and entering short text fragments, a draft report is generated, which can then be manually completed and refined. The screenshot shows an example of such a draft\n\n\n\nScreenshot of batGPT: Input on the left, generated output on the right.\n\n\nThis application was developed for b-at Beratung assistive Technologien in 2024 and is being enhhanced and improved regularly, using the latest AI models and capabilities.\n\nCategories\n\nAI",
+    "crumbs": [
+      "Gschichtefritz",
+      "Andri Krämer",
+      "Andri's Projects"
+    ]
+  },
+  {
+    "objectID": "andri.html#docgpt",
+    "href": "andri.html#docgpt",
+    "title": "Andri’s Projects",
+    "section": "docGPT",
+    "text": "docGPT\n2025 -\n\nWrite structured documents and reports with just a few clicks and keystrokes\n\nThere’s a dedicated page for this project: docGPT\n\nCategories\n\nAI",
+    "crumbs": [
+      "Gschichtefritz",
+      "Andri Krämer",
+      "Andri's Projects"
+    ]
+  },
+  {
+    "objectID": "andri.html#mts",
+    "href": "andri.html#mts",
+    "title": "Andri’s Projects",
+    "section": "mts",
+    "text": "mts\n2025 -\n\nA tool for electronic billing in the Swiss healthcare system\n\nThere’s a dedicated page for this project (in German): mts\n\nCategories\n\nmiscellaneous",
+    "crumbs": [
+      "Gschichtefritz",
+      "Andri Krämer",
+      "Andri's Projects"
+    ]
+  },
+  {
+    "objectID": "andri.html#tl-qrbill",
+    "href": "andri.html#tl-qrbill",
+    "title": "Andri’s Projects",
+    "section": "tl-qrbill",
+    "text": "tl-qrbill\n2025 -\n\nAn extension for the teamleader CRM/ERP to generate Swiss QR-Bill slips\n\nThere’s a dedicated page for this project (in German): tl-qrbill\n\nCategories\n\nmiscellaneous",
+    "crumbs": [
+      "Gschichtefritz",
+      "Andri Krämer",
+      "Andri's Projects"
+    ]
+  },
+  {
+    "objectID": "andri.html#bringo",
+    "href": "andri.html#bringo",
+    "title": "Andri’s Projects",
+    "section": "bringo",
+    "text": "bringo\n2025 -\n\nThe perfect platform for ‘self-organizing’ events. Who’s coming? Who’s bringing what? Bringo takes care of it all.\n\nBringo is written in Python, using the Reflex framework. There’s a dedicated page for this project (in German): bringo\n\nCategories\n\nmiscellaneous",
+    "crumbs": [
+      "Gschichtefritz",
+      "Andri Krämer",
+      "Andri's Projects"
+    ]
+  },
+  {
+    "objectID": "andri.html#chat-export",
+    "href": "andri.html#chat-export",
+    "title": "Andri’s Projects",
+    "section": "chat-export",
+    "text": "chat-export\n2024 -\n\nMy father asked me how he could print his WhatsApp chat history with my late brother. I had to realize that this was not possible, and there was no useful free tool to archive or print a chat in a nice format. So, I wrote one.\n\nchat-export is an open-source tool written in Python. The website is built using an AWS Lambda function that retrieves the project’s README markdown from GitHub, converts it to HTML, and returns it as a complete, properly formatted HTML page.\n\n\n\nYouTube\n\n\n\nCategories\n\nmiscellaneous",
+    "crumbs": [
+      "Gschichtefritz",
+      "Andri Krämer",
+      "Andri's Projects"
+    ]
+  },
+  {
+    "objectID": "andri.html#anelec",
+    "href": "andri.html#anelec",
+    "title": "Andri’s Projects",
+    "section": "Anelec",
+    "text": "Anelec\n1985 - 1990\n\nMy first company at the age of 12\n\nA funny memory I found at my brother’s place in 2024: A catalog from 1986, when I was 13 years old. I already had a ‘company’ named ‘Anelec’ (derived from Andri Electronics). I etched circuit boards at home in the laundry room and sold kits and electronic circuits at school. I remember that the mother of a classmate was quite shocked when I sold her son a light organ with the note ‘220 volts! Danger of death!’ and some drawn skulls on the circuit board 😀.\n\n\n\nA page from ‘Anelec Catalog 1986’\n\n\n\nCategories\n\nearly projects",
+    "crumbs": [
+      "Gschichtefritz",
+      "Andri Krämer",
+      "Andri's Projects"
+    ]
+  },
+  {
+    "objectID": "andri.html#running-wheel-tracker",
+    "href": "andri.html#running-wheel-tracker",
+    "title": "Andri’s Projects",
+    "section": "Running Wheel Tracker",
+    "text": "Running Wheel Tracker\n2018 - 2018\n\nPet cage upgraded for the IoT era\n\nWe have three degus, and in their three-story cage, the animals have various climbing options as well as a running wheel and two spinning plates.\n\nActivity tracking\nAre they really only active during the day? When and how much do they run? I wanted to know for sure, so I installed sensors in their running wheel and on their two spinning plates, where they run their laps daily. I connected the sensors to a microcontroller and programmed it to send rotation data to my server, which generates charts that I can view from anywhere.\n\n\n\n\n\nflowchart TD\n    A1[Running Wheel] --&gt;|Hall Effect Sensor Signal| B(ESP32 Microcontroller)\n    A2[Spinning Plate 1] --&gt;|Hall Effect Sensor Signal| B(ESP32 Microcontroller)\n    A3[Spinning Plate 2] --&gt;|Hall Effect Sensor Signal| B(ESP32 Microcontroller)\n    B --&gt; |WLAN| C{Web Server}\n    C &lt;--&gt; D(Database)\n    C --&gt; E[Statistics Dashboard]\n\n\n\n\n\n\n\n\nThis way, I know when they run their laps—and how many laps they complete. Does that sound absurd? Kind of. Many people track their fitness with pedometers and similar devices, even though they should already have a pretty good sense of how far they’ve walked, considering they take the steps themselves. It’s different with pets. What do they actually do during all the hours I spend at work or asleep? No idea. It could be interesting, right? \n\n\nThe chart shows activity grouped by time of day. From 9 p.m. to 7 a.m., they actually sleep. During the day, and especially in the early evening, they run quite a lot. Over 30 days, the animals ran a total of 200,000 laps. Technical details: On the back of the running wheel, I attached a small magnet and on the stationary part, a Hall effect sensor. This is connected to an ESP-32 microcontroller, which tracks the laps and reports them to the server.\n\n\nBehavior during vacation\nDuring a fall break, the degus (apart from brief “feeding visits” from the neighbor) were alone at home. The following chart shows the number of laps per day. The animals were much less active during our absence, from October 7 to 12, than they were before. Was it because of the light, since it was darker in the apartment? We had the shutters partially closed. On the next occasion, I tried it with more light, but even then, the degus were much more passive when they were alone at home. \n\n\nAudio stories for degus\nThe next hypothesis was, therefore: the quieter it is in the apartment, the less active the degus are. To test this, an installation was needed that would play audio for the degus at a specific time during the second week of vacation. This required a device that would automatically start playing when powered by a timer.\nThe Gschichtefritz audio stations I built for public libraries met this requirement. So, I quickly connected an audio station to an amplifier, linked both to a timer, and set it to play Blue Dino stories near the degu cage in the mornings from around 7–8 a.m. and in the evenings from about 6–7:30 p.m. There was also a reason why the degus could only listen to stories at these off-peak times: during the second vacation week, the building manager was supposed to visit the apartment at some point to repair a broken shutter. He probably would have thought we were completely nuts if children’s stories about the Blue Dino started playing next to the degu cage while he was there…\n\n\nWhen the Blue Dino plays, they run\nThe following three charts show how many laps the degus ran at different times of the day in the days that followed. \n\nDay one: Until the installation was activated at noon, the degus were passive. But when the Dino stories began playing in the evening around 6 p.m., the degus started running—and only for as long as the stories were playing.\nDay two: The animals were active precisely during the times the stories were playing.\nDay three: The same behavior pattern appeared again.\n\nWhether this was because they recognized my voice or if they would have run to Beethoven or The Rolling Stones as well still needs to be investigated…\n\n\nCategories\n\nmiscellaneous",
+    "crumbs": [
+      "Gschichtefritz",
+      "Andri Krämer",
+      "Andri's Projects"
+    ]
+  },
+  {
+    "objectID": "andri.html#easypaste",
+    "href": "andri.html#easypaste",
+    "title": "Andri’s Projects",
+    "section": "easypaste",
+    "text": "easypaste\n2025 -\n\nYour ultimate clipboard sidekick for presentations, coding demos, and tutorial recordings. This lightweight, open-source tool, built in Rust, lets you load a text file with custom delimiters and then paste segments one-by-one via global hotkeys—no retyping, no fumbling with copy/paste. It also shows a preview of the upcoming segment (with optional internal notes visible only in console).\n\neasypaste is an open-source tool written in Rust. The website is built using an AWS Lambda function that retrieves the project’s README markdown from GitHub, converts it to HTML, and returns it as a complete, properly formatted HTML page.\n\nCategories\n\nmiscellaneous",
+    "crumbs": [
+      "Gschichtefritz",
+      "Andri Krämer",
+      "Andri's Projects"
+    ]
+  },
+  {
+    "objectID": "andri.html#shuffle_spotify_playlist",
+    "href": "andri.html#shuffle_spotify_playlist",
+    "title": "Andri’s Projects",
+    "section": "shuffle_spotify_playlist",
+    "text": "shuffle_spotify_playlist\n2022 - 2022\n\nCreate a shuffled copy of your Spotify playlist - the reliable way to avoid repeats during playback.\n\nWhen planning a party — whether for friends, colleagues, or clients — I usually take care of the music myself. I enjoy curating playlists and selecting songs that fit the occasion and mood. For me, music is too important to rely on AI-generated or generic playlists. I want the experience to feel intentional and personal.\nHowever, I kept running into the same problem: after assembling a playlist of 80-120 songs, I’d notice that similar tracks or songs from the same artist often ended up grouped together. That’s natural — it reflects the way we think while adding songs. But it doesn’t make for a good listening experience.\nShuffle mode in Spotify seemed like a quick fix, but it caused another issue: when the playback is stopped (e.g. during a dinner or speech) and resumed later, Spotify doesn’t remember which songs have already been played. As a result, some tracks repeat, while others don’t get played at all.\nTo avoid this, I wanted a way to shuffle the playlist once and then play it in regular, sequential mode — ensuring all songs are played once, in a good order, without repetition. Doing this manually for large playlists is tedious and time-consuming.\nThat’s why I wrote a small Python script in a Jupyter Notebook to automate the process. It connects to your Spotify account, takes a playlist, shuffles it once, and saves the shuffled version as a new playlist. This gives you a great base to start from — and you can still reorder a few songs manually if you like.\nYou can find it on GitHub:\n🔗 github.com/mtln/shuffle_spotify_playlist\n\nCategories\n\nmusic\nmiscellaneous",
+    "crumbs": [
+      "Gschichtefritz",
+      "Andri Krämer",
+      "Andri's Projects"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "matlon GmbH",
+    "section": "",
+    "text": "As a kid, whenever someone asked what I wanted to be when I grew up, I’d always say, ‘an inventor.’ Here, I am documenting my projects. So stay tuned and follow me as the website grows!\n* 2026-02-15: Gschichtefritz App reworked First implemented in xamarin in 2020, then migrated to MAUI and now -with a lot of help from AI- rewritten in Flutter/Dart * 2025-08-26 Gschichtefritz Affiliate Fully configurable affiliate programme for Gschichtefritz. * 2025-07-19 shuffle_spotify_playlist Shuffle your Spotify party playlist once — learn why it’s better than using shuffle mode, and how to do it. * 2025-07-16: easypaste Your ultimate clipboard sidekick for presentations, coding demos, and tutorial recordings. * 2025-06-23: bringo is the perfect platform for “self-organizing” events. Who’s coming? Who’s bringing what? Bringo takes care of it all. Written using the Reflex framework. * 2025-05-20: tl-qrbill is an extension for the teamleader CRM/ERP to generate Swiss QR-Bill slips. * 2025-03-06: docGPT is an AI web tool for writing reports or documents. * 2025-01-31: mts ermöglicht Leistungserbringern, Rechnungen aus ihrem bestehenden CMS/ERP im GeneralInvoice-XML-Format auf elektronischem Weg via MediData an die Invalidenversicherung (IV) zu senden * 2024-11-16: Running Wheel Tracker Pet cage upgraded for the IoT era * 2024-11-14: Andri’s CV Joyfully bound to the endless journey of learning * 2024-11-08: chat-export, 2024- My father asked me how he could print his WhatsApp chat history with my late brother. I had to realize that this was not possible, and there was no useful free tool to archive or print a chat in a nice format. So, I wrote one. * 2024-11-10: Anelec, 1985-1990 My first company at the age of 12 * 2024-11-04: batGPT, 2024- Write assessment reports for assistive technologies using AI * 2024-11-03: Brainwaver: Pink Noise, 2013 Nothing but binaural pink noise to get into the flow and focus * 2024-11-02: Dino Stampf Deep Learning, 2017 Pre-LLM AI generated pseudo-Swiss German lyrics * 2024-11-01: VisualMix, 2022 Mix and arrangement of a song visualized * 2024-10-31: gschichtefritz.ch current, 2023 - Shop and App backend * 2024-10-30: gschichtefritz.ch legacy, 2009 - 2023 CRM, shop, CD burner automation, accounting, and more * 2024-10-29: Gschichtefritz App, 2020 - Gschichtefritz audiobook player app for iOS and Android * 2024-10-28: Gschichtefritz, 2009 - Audio stories with songs for children * 2024-10-27: Ohr, 1992 - 1994 Ear trainer for musicians * 2024-10-26: WiiMIDIi, 2007 - 2008 Using a Nintendo Wiimote for guitar motion sensing and converting accelerometer data to MIDI * 2024-10-25: Teltax, 1995 - 1999 Dial-In modem costs calculator and splitter * 2024-10-24: Patient, 1991 - 1994 was the first program I wrote to be used productively: A patient management software for my mom. * 2024-10-23: PublicSecrets, 1997 - 2007 was a mix of social networking and productivity platform.",
+    "crumbs": [
+      "Gschichtefritz",
+      "matlon GmbH"
+    ]
+  },
+  {
+    "objectID": "andri_cv.html#personal-information",
+    "href": "andri_cv.html#personal-information",
+    "title": "Andri’s CV",
+    "section": "Personal Information",
+    "text": "Personal Information\n\nName: Andri Krämer\nWell, to be precise: my real name is Andres Krämer. But ever since I was born, everyone has only called me Andri. Except maybe for the tax office and the local authorities. In the age of digitalization, this is increasingly becoming a problem, as whenever I have to verify my identity electronically, the name doesn’t match the one on my ID. And if I were to use Andres on LinkedIn, for example, no one would recognize me 🫤.\nEmail: akraemer@matlon.ch\n\nNationality: Swiss\n\nDate of Birth: 1 August 1973, in Zürich\n\nMarital Status: Married\n\nChildren: 3 kids, born 2008, 2010 and 2012",
+    "crumbs": [
+      "Gschichtefritz",
+      "Andri Krämer",
+      "Andri's CV"
+    ]
+  },
+  {
+    "objectID": "andri_cv.html#languages",
+    "href": "andri_cv.html#languages",
+    "title": "Andri’s CV",
+    "section": "Languages",
+    "text": "Languages\n\nGerman: Native speaker\nEnglish: Fluent (spoken and written)\nFrench: Good working knowledge",
+    "crumbs": [
+      "Gschichtefritz",
+      "Andri Krämer",
+      "Andri's CV"
+    ]
+  },
+  {
+    "objectID": "andri_cv.html#education",
+    "href": "andri_cv.html#education",
+    "title": "Andri’s CV",
+    "section": "Education",
+    "text": "Education\n\nJune/July 2019: Residency at D ONE during sabbatical.\n2016 - today: Machine Learning and AI with sklearn, TensorFlow, Keras, PyTorch, XGBoost, LLMs, OpenAI API and others. Data Science and Analytics with Databricks, MongoDB, Power BI, Python, AWS.\n2001: Diploma (equivalent to today’s MS) in Computer Science from ETH Zurich. Score: 5.39 (scale 1–6).\n2001: Diploma thesis at Arsin Corp., San Francisco. Won Hitachi-Motorola-Award for best thesis in Corporate Communication at Eurécom.\n2000: Final year studies in Corporate Communication at Institute Eurécom, France for Engineering Degree in Computer Science of ETHZ.\n1995 – 2000: Degree course in Computer Science at ETH Zurich.\n1993 – 1994: Jazz School in Lucerne, Switzerland.\n1992: Matura C (specialized in mathematics and and natural sciences) at MNG Zurich.",
+    "crumbs": [
+      "Gschichtefritz",
+      "Andri Krämer",
+      "Andri's CV"
+    ]
+  },
+  {
+    "objectID": "andri_cv.html#work-experience",
+    "href": "andri_cv.html#work-experience",
+    "title": "Andri’s CV",
+    "section": "Work Experience",
+    "text": "Work Experience\n\nAutumn 2025 - today: Back at mp technology AG as Head of AI.\nAutumn 2024 - Autumn 2025: C*O at matlon GmbH, working on exciting projects that matter and enjoying every moment of it.\n2009 - 2024: Senior Software Engineer and Project Manager at mp technology AG:\n\nProjects for various clients in machine learning, data science, and data analytics. Implementation of projects and support of client teams in the conception and execution of data-based processes and tools. Use of machine learning for revenue optimization in e-commerce systems. Technologies: Python, MongoDB, AWS, Databricks, Power BI\nOnline insurance platform for smile insurances. Lead developer in a team of up to 5 employees, Project management and client support, solution design, refinement, requirements, and concepts. Comprehensive web application for insurance sales, analytics, and marketing activities for private liability, household, car and motorcycle insurance, travel, legal, and life insurance. Multiple redesigns and technology upgrades.\nQuality Control tool for SVA Zurich (Java/Spring/Vaadin).\n\n2009 - current: Gschichtefritz.ch. Developed automated publishing and production system for personalized children’s audio stories.\n2008: Developed software for various non-profit projects, including on-stage live performance tools.\n2007: Test Manager at SBB, Bern, for an online ticketing project.\n2004 – 2007: Project Manager and Developer at Penta Group, Zürich. Worked on p-Desk Product Development (Java).\n2002 - 2003: Designed and implemented security frameworks at Schmid Telecom, Zürich.\n2001: Six-month thesis project at Arsin Corp., San Francisco (BGP Routing Instability Generator).\n1997 - 1999: Project Manager at Telenet Inc., St. Gallen.\n1995: SwissRe, Zürich: Internship and part-time positions.",
+    "crumbs": [
+      "Gschichtefritz",
+      "Andri Krämer",
+      "Andri's CV"
+    ]
+  },
+  {
+    "objectID": "andri_cv.html#academic-and-non-profit-projects",
+    "href": "andri_cv.html#academic-and-non-profit-projects",
+    "title": "Andri’s CV",
+    "section": "Academic and Non-profit Projects",
+    "text": "Academic and Non-profit Projects\n\n2000: Eurecom. Developed JPKI, a high-level Java PKI API based on cryptlib, and a Certificate Authority Web Application based on JPKI.\n1999: ETHZ/TIK. Developed the concept, designed, and implemented SNAP, the Secure Nonlocal Anonymizing Proxy enabling anonymous HTTP and Email communication that cannot be traced within the user’s local environment. Analyzed existing solutions for anonymous communication on the Internet, including Crowds, Onion Routing, Anonymizer, LPWA, and Remailers.\n1997–2007: Developed PublicSecrets, a non-profit web collaboration tool and social network portal with integrated email, photo gallery, address book, bookmark store, secure file sharing, event organizer, and shared accounting/bookkeeping.",
+    "crumbs": [
+      "Gschichtefritz",
+      "Andri Krämer",
+      "Andri's CV"
+    ]
+  },
+  {
+    "objectID": "andri_cv.html#other-experience-and-interests",
+    "href": "andri_cv.html#other-experience-and-interests",
+    "title": "Andri’s CV",
+    "section": "Other Experience and Interests",
+    "text": "Other Experience and Interests\n\n2009–present: Writing and recording over 70 Swiss-German children’s stories with songs under the pseudonym “Gschichtefritz.” Available until 2023 on CD or MP3 with a “pay if you like it” model, now as MP3 and APP. Performed live at public events, theatres, and schools.\n2008–present: Marriage and family life with two sons (born 2008, 2010) and one daughter (born 2012).\n2004–2008: Composer, arranger, and producer with the Swiss pop duo Amtsbladt, doing CD productions and live concerts.\nAutumn 2003: Completed a solo bicycle trip spanning over 5500 km across Poland, Slovakia, Hungary, Romania, Bulgaria, Turkey, Greece, Croatia, Slovenia, Italy, and Switzerland.\n1992–1995: Worked as a guitar teacher, bartender, musician, and postman.\n1988–1996: Leader of Jungwacht Wollishofen, a boy-scout organization, and instructor for Jugend & Sport Switzerland.\n\nInterests: Music, Reading, Theatre, Mountain Biking, Hiking",
+    "crumbs": [
+      "Gschichtefritz",
+      "Andri Krämer",
+      "Andri's CV"
+    ]
+  },
+  {
+    "objectID": "model.html",
+    "href": "model.html",
+    "title": "Model",
+    "section": "",
+    "text": "source\n\nProject\n\ndef Project(\n    data:Any\n)-&gt;None:\n\nModel for a project and the graph of related projects\n\nsource\n\n\nload_projects\n\ndef load_projects(\n    \n):\n\n\nsource\n\n\nget_categories\n\ndef get_categories(\n    projects:list\n)-&gt;list:\n\n\nsource\n\n\nfilter_projects\n\ndef filter_projects(\n    projects:list, category:str\n)-&gt;list:\n\n\nsource\n\n\nprojects_to_dot\n\ndef projects_to_dot(\n    projects:list, category:str\n)-&gt;str:\n\n\nsource\n\n\nproject_to_markdown\n\ndef project_to_markdown(\n    project:Project\n)-&gt;str:\n\nrun\nnbdev_clean --fname ./nbs --clear_all\nbefore commit.",
+    "crumbs": [
+      "Gschichtefritz",
+      "Model"
+    ]
+  },
+  {
+    "objectID": "docgpt.html",
+    "href": "docgpt.html",
+    "title": "docGPT",
+    "section": "",
+    "text": "EN | DE",
+    "crumbs": [
+      "Gschichtefritz",
+      "docGPT"
+    ]
+  },
+  {
+    "objectID": "docgpt.html#wozu-docgpt",
+    "href": "docgpt.html#wozu-docgpt",
+    "title": "docGPT",
+    "section": "Wozu docGPT?",
+    "text": "Wozu docGPT?\nmatlon GmbH hat als Pilotprojekt für eine Firma, die im Bereich Assistive Technologien tätig ist, ein AI Web Tool entwickelt, welches das Schreiben von Berichten erleichtert. Das Verfassen eines Berichts ist eine notwendige, aber oft repetitive und zeitaufwändige Aufgabe für Fachleute. Es ist eine Voraussetzung für die Rechnungsstellung gegenüber der IV, bietet jedoch nur wenig direkten Nutzen für den Patienten. Das Ziel ist es, diesen Prozess zu optimieren und zu beschleunigen.\nAus diesem Pilotprojekt ist docGPT hervorgegangen, welches für beliebige Fachbereiche und Anwendungsfälle angepasst werden kann. Kunden können eigene Gliederungen und Stichwort-Hierarchien definieren und so das Tool für ihre spezifischen Bedürfnisse anpassen.\nmatlon GmbH bietet docGPT als Software as a Service (SaaS) an. Wir unterstützen Sie mit unserem Wissen im Bereich AI und Prompt Engineering bei der Konfiguration, so dass Sie für Ihren Fachbereich das Optimum aus dem Tool herausholen können.",
+    "crumbs": [
+      "Gschichtefritz",
+      "docGPT"
+    ]
+  },
+  {
+    "objectID": "docgpt.html#vorteile-gegenüber-chatgpt",
+    "href": "docgpt.html#vorteile-gegenüber-chatgpt",
+    "title": "docGPT",
+    "section": "Vorteile gegenüber ChatGPT",
+    "text": "Vorteile gegenüber ChatGPT\ndocGPT ist speziell für das Schreiben von Berichten konzipiert und bietet daher einige Vorteile gegenüber ChatGPT:\n\nGeführte Erfassung: Der Benutzer wird über eine Gliederung in Abschnitte und eine fachliche Stichwort-Hierarchie durch den Erfassungsprozess geführt. So wird sichergestellt, dass alle relevanten Informationen erfasst werden.\nKonsistente Struktur: Durch die fachspezifische Konfiguration erreichen wir, dass die generierten Dokumente eine konsistente Struktur erhalten.\nZentrale Datenhaltung und Versionierung: Die Dokumente werden nach Thema (Fachbereich) und Patient (oder Kunde) gegliedert und versioniert gespeichert. So können sie später einfach wiedergefunden und bei Bedarf angepasst werden.\nDatenschutz: Anstelle des Patienten- oder Kundennamens werden Platzhalter in der Kommunikation mit der AI verwendet, um die Anonymität zu wahren. Die Kommunikation mit dem LLM (Large Language Model) erfolgt über die OpenAI API. Somit ist auch sichergestellt, dass die übermittelten Daten von OpenAI nicht zu Trainingszwecken weiterverwendet werden (was bei der Nutzung von ChatGPT der Fall wäre).",
+    "crumbs": [
+      "Gschichtefritz",
+      "docGPT"
+    ]
+  },
+  {
+    "objectID": "docgpt.html#why-docgpt",
+    "href": "docgpt.html#why-docgpt",
+    "title": "docGPT",
+    "section": "Why docGPT?",
+    "text": "Why docGPT?\nAs a pilot project for a company operating in the field of Assistive Technologies, matlon GmbH has developed an AI web tool that simplifies report writing. Writing a report is a necessary but often repetitive and time-consuming task for professionals. It is a prerequisite for invoicing the IV (Invalidity Insurance) but offers little direct benefit to the patient. The goal is to optimize and accelerate this process.\nFrom this pilot project, docGPT emerged, which can be adapted for various professional fields and use cases. Customers can define their own outlines and keyword hierarchies to tailor the tool to their specific needs.\nmatlon GmbH offers docGPT as Software as a Service (SaaS).\nWe support you with our expertise in AI and prompt engineering to help you get the most out of the tool for your specific field.",
+    "crumbs": [
+      "Gschichtefritz",
+      "docGPT"
+    ]
+  },
+  {
+    "objectID": "docgpt.html#advantages-over-chatgpt",
+    "href": "docgpt.html#advantages-over-chatgpt",
+    "title": "docGPT",
+    "section": "Advantages over ChatGPT",
+    "text": "Advantages over ChatGPT\ndocGPT is specifically designed for report writing and therefore offers several advantages over ChatGPT:\n\nGuided Input: The user is guided through the input process via an outline divided into sections and a structured hierarchy of field-specific keywords. This ensures that all relevant information is captured.\nConsistent Structure: Through domain-specific configuration, we ensure that the generated documents follow a consistent structure.\nCentralized Data Storage and Versioning: Documents are organized and versioned based on topic (field of expertise) and patient (or client). This allows for easy retrieval and modifications when needed.\nData Privacy: Instead of using patient or client names, placeholders are used in communication with the AI to maintain anonymity. The interaction with the LLM (Large Language Model) occurs via the OpenAI API. This ensures that the transmitted data is not used by OpenAI for training purposes (which would be the case when using ChatGPT).",
+    "crumbs": [
+      "Gschichtefritz",
+      "docGPT"
+    ]
+  },
+  {
+    "objectID": "bringo.html",
+    "href": "bringo.html",
+    "title": "bringo.ch",
+    "section": "",
+    "text": "(Because this is a tool for users in Switzerland, this page is in German instead of English.)",
+    "crumbs": [
+      "Gschichtefritz",
+      "bringo.ch"
+    ]
+  },
+  {
+    "objectID": "bringo.html#wozu-bringo",
+    "href": "bringo.html#wozu-bringo",
+    "title": "bringo.ch",
+    "section": "Wozu bringo?",
+    "text": "Wozu bringo?\nBringo ist eine Plattform für die Organisation und Verwaltung von Events, zu denen die Teilnehmer etwas mitbringen sollen. Typisches Beispiel: Eine Grillparty. Es braucht fürs Buffet ein paar Salate, Brot, Desserts usw. Jeder sieht, was noch fehlt und wer was bringt. Die Party organisiert sich quasi von alleine. Die erforderlichen Mitbrigsel vervielfachen sich, falls nötig, mit steigender Teilnehmerzahl. Beispiel: Du definierst, dass es pro 12 Personen ein Tenpack alkoholfreies Bier und pro 6 Teilnehmer eine Flasche Rotwein braucht, während ein Kartoffelsalat für 30 reichen wird, weil ja nach der 15. Anmeldung automatisch noch der Pastasalat als Mitbringsel erscheint.\nSpare Dir das mühsame Hin- und Her-Organisieren per E-Mail oder WhatsApp und das manuelle Up-To-Date-halten eines Excel-Sheets. Verschone Deine Gäste von unübersichtlichen Chat-Gruppen mit zig irrelvanten Nachrichten. Bringo ist einfach zu bedienen und bietet für alle Teilnehmenden eine klare Übersicht, wer kommt und wer was mitbringt.",
+    "crumbs": [
+      "Gschichtefritz",
+      "bringo.ch"
+    ]
+  },
+  {
+    "objectID": "bringo.html#bringo-ist-perfekt-für",
+    "href": "bringo.html#bringo-ist-perfekt-für",
+    "title": "bringo.ch",
+    "section": "bringo ist perfekt für:",
+    "text": "bringo ist perfekt für:\n\nGrillpartys\nPicknicks\nApéros\nSiedlungs- und Strassenfeste\nTeam-Events\nVereinsanlässe\nGeburtstagsfeiern\nHochzeiten\n\nFür 4 bis 200 Personen.\nScreenshot:\n\n\n\nbringo Teilnehmerliste\n\n\n\nScreencasts\n\nFür Gäste:\n\n\n\nYouTube\n\n\n\n\nFür Organisatoren:\n\n\n\nYouTube",
+    "crumbs": [
+      "Gschichtefritz",
+      "bringo.ch"
+    ]
+  }
+]
