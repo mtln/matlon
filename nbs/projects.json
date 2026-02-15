@@ -56,7 +56,7 @@
         "categories": ["long-term projects"],
         "year_start": 2020,
         "quote": "Gschichtefritz audiobook player app for iOS and Android",
-        "description": "Gschichtefritz offered MP3s from the very beginning. However, with the rise of streaming services, it became clear that customers were finding it increasingly challenging to download MP3s and transfer them to iPods, tablets, or smartphones. To address this issue, I developed a player app in 2020. The free [Gschichtefritz App](https://gschichtefritz.ch/page/app) lets you download all your stories, so you can listen to them offline whenever you want. It’s also designed to be easily operated by young children, even those who can’t read yet.\n\n**Framework:** Xamarin, since 2023: Maui  \n**Programming Language:** C#  \n**Platforms:** iOS and Android\n\n ![Gschichtefritz App Screenshot](gschichtefritzapp1.jpg)",
+        "description": "Gschichtefritz offered MP3s from the very beginning. However, with the rise of streaming services, it became clear that customers were finding it increasingly challenging to download MP3s and transfer them to iPods, tablets, or smartphones. To address this issue, I developed a player app in 2020. The free [Gschichtefritz App](https://gschichtefritz.ch/page/app) lets you download all your stories, so you can listen to them offline whenever you want. It’s also designed to be  easily operated by young children, even those who can’t read yet.\n\n**Framework:** Xamarin, 2023-2026: Maui, 2026-today: Flutter/Dart   \n**Programming Language:** C#, now Dart  \n**Platforms:** iOS and Android\n\n ![Gschichtefritz App Screenshot](gschichtefritzapp1.jpg)",
         "related_project_titles": ["Gschichtefritz"]
 
     },
