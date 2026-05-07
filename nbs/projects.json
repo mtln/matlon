@@ -181,6 +181,12 @@
         "year_start": 2026,
         "quote": "A community-based goal tracking web app.",
         "description": "[commugoal](https://commugoal.click) is a community-driven goal tracking app for the important habits that are good for you, but not always fun, like physiotherapy exercises, going to the gym, or evening runs. Instead of feeling bad when you postpone something too long, commugoal turns every completed task into a positive moment for you and your family, friends, or community. Together, you define a shared point goal and a reward (for example, going out for dinner together). Each person creates their own personal challenges, and whenever they complete one, they click “Accomplished” so the corresponding points are credited to the community. This way, personal discipline becomes a shared motivation and progress becomes visible for everyone."
+    },{
+        "title": "NextTask",
+        "categories": ["miscellaneous"],
+        "year_start": 2026,
+        "quote": "A task switching app that randomly picks your next task from a predefined list and runs it through a configurable timebox timer.",
+        "description": "[NextTask](https://nexttask.click) helps you get things done by taking the decision of \"what to do next\" out of your hands. You create a list of tasks — simple named items that can be reused across multiple task lists — and group them into task lists like \"Morning Routine\", \"Weekend\", or \"Side Project\". When you're ready, you pick a task list and hit Execute: NextTask randomly selects a task, starts a countdown timer (default 20 minutes), and notifies you when time is up. You can switch to the next random task, pause, or stop at any time.\n\nOptions include a configurable timebox, a \"never repeat last task\" toggle, and a choice of no notification, a sound alert, or a browser notification when the timer expires. The timer continues into negative time if you go past the timebox — you're never interrupted, only notified. Every completed session is recorded in the Task Log, showing when you started, which task you worked on, and how long.\n\n."
     }
     
     
